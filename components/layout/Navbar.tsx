@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Scale } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -34,22 +35,20 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         
-        {/* Logo Ajustado: Más pequeño y compacto */}
-        <Link href="/" className="flex items-center gap-3 group relative z-50 shrink-0">
-          <div className="bg-gold-400 p-1.5 rounded-sm text-navy-900 shadow-lg">
-            <Scale size={20} />
-          </div>
-          <div className="flex flex-col leading-none">
-            <span className="text-lg md:text-xl font-bold text-white tracking-wide font-serif drop-shadow-md whitespace-nowrap">
-              MONTEZA VILLEGAS
-            </span>
-            <span className="text-[10px] md:text-xs text-gold-400 tracking-[0.2em] font-medium uppercase">
-              & ABOGADOS
-            </span>
-          </div>
+        {/* LOGO MÁS GRANDE */}
+        <Link href="/" className="relative z-50 shrink-0">
+          <Image
+            src="/logo2.png" // <-- Usando el nuevo archivo
+            alt="Monteza Villegas & Abogados"
+            width={400}
+            height={120}
+            // CAMBIO AQUÍ: Aumentamos la altura en móvil (h-14) y escritorio (h-20)
+            className="h-14 md:h-20 w-auto object-contain transition-all" 
+            priority
+          />
         </Link>
 
-        {/* Menú Desktop: Textos más pequeños y sin saltos de línea */}
+        {/* Menú Desktop */}
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => (
             <Link
@@ -73,7 +72,7 @@ export default function Navbar() {
           className="lg:hidden text-white relative z-50"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          {mobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
         </button>
       </div>
 
