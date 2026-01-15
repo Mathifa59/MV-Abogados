@@ -7,7 +7,6 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    // CAMBIO: min-h-screen permite que el div crezca si el contenido en movil es muy alto
     <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-navy-950">
       
       {/* FONDO */}
@@ -22,21 +21,21 @@ export default function Hero() {
         />
       </div>
 
-      {/* CONTENIDO RESPONSIVE */}
-      <div className="relative z-20 container mx-auto px-6 pt-32 pb-20 md:pt-20">
+      {/* CONTENIDO - Padding aumentado a pt-40 para evitar choque con el logo */}
+      <div className="relative z-20 container mx-auto px-6 pt-40 pb-20 md:pt-48">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-4xl"
         >
-          {/* Etiqueta adaptativa */}
+          {/* Etiqueta */}
           <div className="inline-flex flex-wrap items-center gap-2 px-3 py-2 rounded-sm bg-navy-900/50 border border-gold-400/30 text-gold-400 text-[10px] md:text-sm mb-6 md:mb-8 backdrop-blur-sm">
             <span className="w-2 h-2 rounded-full bg-gold-400 animate-pulse shrink-0" />
             <span className="font-bold tracking-widest uppercase wrap-break-word">Especialistas en Derecho Corporativo y Penal</span>
           </div>
           
-          {/* Título que escala: text-4xl en movil -> text-7xl en PC */}
+          {/* Título */}
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight mb-6 drop-shadow-lg font-serif">
             Defendemos tu legado, <br />
             <span className="text-gold-400">
@@ -48,7 +47,6 @@ export default function Hero() {
             En <strong>Monteza Villegas & Abogados</strong>, la excelencia no es una opción, es nuestro estándar. Soluciones legales estratégicas para casos complejos.
           </p>
 
-          {/* Botones apilados en movil (flex-col), lado a lado en PC (sm:flex-row) */}
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <Link 
               href="/contacto" 
