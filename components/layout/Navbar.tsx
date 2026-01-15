@@ -91,7 +91,7 @@ export default function Navbar() {
 
         {/* BOTÓN HAMBURGUESA (MÓVIL) */}
         <button
-          className="lg:hidden text-white relative z-50 p-2 hover:bg-white/10 rounded transition-colors"
+          className="lg:hidden text-white relative z-60 p-2 hover:bg-white/10 rounded transition-colors"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Menú"
         >
@@ -107,7 +107,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-[#040b14] z-50 flex flex-col pt-24 px-6 gap-6 overflow-y-auto"
+            className="fixed inset-0 bg-[#040b14] z-40 flex flex-col pt-24 px-6 gap-6 overflow-y-auto"
           >
             {navLinks.map((link) => (
               <Link
