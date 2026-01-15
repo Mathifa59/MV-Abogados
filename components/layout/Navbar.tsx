@@ -107,15 +107,14 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            // AQUÍ ESTÁ EL ARREGLO: bg-[#040b14] es el color sólido exacto, sin transparencias.
-            className="fixed inset-0 bg-[#040b14] z-40 flex flex-col pt-32 px-6 gap-8 overflow-y-auto"
+            className="fixed inset-0 bg-[#040b14] z-50 flex flex-col pt-24 px-6 gap-6 overflow-y-auto"
           >
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-2xl font-bold text-white hover:text-gold-400 font-serif border-b border-gray-800 pb-4"
+                className="text-xl font-bold text-white hover:text-gold-400 font-serif border-b border-navy-700 pb-6 pt-4 transition-colors"
               >
                 {link.name}
               </Link>
@@ -123,7 +122,7 @@ export default function Navbar() {
             <Link
               href="/contacto"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-4 bg-gold-400 text-navy-900 font-bold text-center rounded-sm uppercase tracking-widest mt-4 shadow-lg"
+              className="w-full py-4 bg-gold-400 text-navy-900 font-bold text-center rounded-sm uppercase tracking-widest mt-6 shadow-lg hover:bg-gold-500 transition-colors"
             >
               Agendar Consulta
             </Link>
