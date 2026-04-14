@@ -25,7 +25,7 @@ export default function NosotrosPage() {
       {/* Visión — layout editorial con texto grande */}
       <section className="py-32 lg:py-44 relative">
         {/* Texto fantasma decorativo */}
-        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-[clamp(6rem,18vw,16rem)] text-white/[0.01] leading-none select-none pointer-events-none whitespace-nowrap">
+        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-[clamp(6rem,18vw,16rem)] text-white/1 leading-none select-none pointer-events-none whitespace-nowrap">
           Excelencia
         </span>
 
@@ -65,7 +65,7 @@ export default function NosotrosPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="py-10 lg:py-0 lg:pr-12 border-b md:border-b-0 md:border-r border-white/[0.04] last:border-0 group"
+                className="py-10 lg:py-0 lg:pr-12 border-b md:border-b-0 md:border-r border-white/4 last:border-0 group"
               >
                 <span className="text-gold-400/15 font-serif text-5xl font-light leading-none mb-6 block group-hover:text-gold-400/30 transition-colors duration-700 select-none">{v.num}</span>
                 <h3 className="text-white/80 text-lg font-medium font-serif mb-3">{v.title}</h3>
@@ -78,7 +78,7 @@ export default function NosotrosPage() {
 
       {/* Fundador — full bleed split */}
       <section className="relative bg-navy-900 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/4 to-transparent" />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[85vh]">
           {/* Foto — full height */}
@@ -89,8 +89,8 @@ export default function NosotrosPage() {
             className="relative min-h-[500px] lg:min-h-0 order-2 lg:order-1"
           >
             <Image src="/americo.jpg" alt="Americo Monteza — Socio Fundador" fill className="object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-l from-navy-900 via-navy-900/30 to-transparent hidden lg:block" />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent lg:hidden" />
+            <div className="absolute inset-0 bg-linear-to-l from-navy-900 via-navy-900/30 to-transparent hidden lg:block" />
+            <div className="absolute inset-0 bg-linear-to-t from-navy-900/80 via-transparent to-transparent lg:hidden" />
           </motion.div>
 
           {/* Texto */}
@@ -102,7 +102,7 @@ export default function NosotrosPage() {
               className="max-w-xl mx-auto lg:mr-auto lg:ml-16 xl:ml-24 px-6 lg:px-0"
             >
               <span className="text-gold-400/50 text-[11px] font-medium tracking-[0.35em] uppercase">Socio Fundador</span>
-              <h2 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-normal text-white mt-6 mb-3 leading-[1]">
+              <h2 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-normal text-white mt-6 mb-3 leading-none">
                 Americo Monteza
               </h2>
               <p className="text-gold-400/40 text-[12px] tracking-[0.25em] uppercase font-medium mb-12">Director &amp; Socio Fundador</p>
