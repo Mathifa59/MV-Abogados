@@ -1,144 +1,136 @@
 'use client';
 
-import PageHeader from '@/components/shared/PageHeader';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin } from 'lucide-react';
-import Image from 'next/image';
+import { Mail, Phone, MapPin, Clock, ArrowRight } from 'lucide-react';
+
+const contactInfo = [
+  { icon: <MapPin size={16} strokeWidth={1} />, label: 'Oficina', value: 'Av. Javier Prado Este 1234, Of. 501\nSan Isidro, Lima — Perú' },
+  { icon: <Phone size={16} strokeWidth={1} />, label: 'Teléfono', value: '+51 (01) 234-5678' },
+  { icon: <Mail size={16} strokeWidth={1} />, label: 'Correo', value: 'contacto@monteza-villegas.com' },
+  { icon: <Clock size={16} strokeWidth={1} />, label: 'Horario', value: 'Lunes a Viernes, 9:00 — 18:00' },
+];
 
 export default function ContactoPage() {
   return (
     <main className="bg-navy-950 min-h-screen flex flex-col">
       <Navbar />
-      
-      <PageHeader 
-        title="Contacto" 
-        subtitle="Agende su Consulta"
-        image="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2000"
-      />
 
-      <section className="py-16 md:py-24 container mx-auto px-4 md:px-6 grow">
-        {/* En móvil: 1 columna. En Desktop: 2 columnas */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          
-          {/* INFO CONTACTO */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="order-2 lg:order-1" // En movil sale segundo, en PC primero
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white font-serif mb-6 md:mb-8">Estamos listos para asistirle</h2>
-            <p className="text-slate-400 mb-10 text-base md:text-lg leading-relaxed">
-              Póngase en contacto con nosotros para programar una reunión inicial. Nuestro equipo revisará su caso con absoluta confidencialidad.
-            </p>
+      {/* Hero de contacto — sin PageHeader, diseño propio */}
+      <section className="relative pt-40 pb-20 lg:pt-48 lg:pb-28 bg-navy-900/50">
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900/50 to-navy-950" />
+        <div className="absolute left-[6%] top-0 w-px h-full bg-gradient-to-b from-transparent via-gold-400/10 to-transparent hidden xl:block" />
 
-            <div className="space-y-8">
-              {/* Item Dirección */}
-              <div className="flex gap-4 md:gap-6 items-start">
-                <div className="bg-navy-800 p-3 md:p-4 rounded-full text-gold-400 shrink-0 shadow-lg">
-                  <MapPin size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-white text-lg md:text-xl mb-1 font-serif">Oficina Principal</h4>
-                  <p className="text-slate-400 text-sm md:text-base">Av. Javier Prado Este 1234, Of. 501<br/>San Isidro, Lima - Perú</p>
-                </div>
-              </div>
-              
-              {/* Item Teléfono */}
-              <div className="flex gap-4 md:gap-6 items-start">
-                <div className="bg-navy-800 p-3 md:p-4 rounded-full text-gold-400 shrink-0 shadow-lg">
-                  <Phone size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-white text-lg md:text-xl mb-1 font-serif">Teléfono</h4>
-                  <p className="text-slate-400 text-sm md:text-base">+51 (01) 234-5678</p>
-                </div>
-              </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative max-w-[1400px] mx-auto px-6 lg:px-16"
+        >
+          <div className="flex items-center gap-5 mb-6">
+            <span className="h-px w-12 bg-gold-400/50" />
+            <span className="text-gold-400/60 text-[11px] font-medium tracking-[0.35em] uppercase">Contacto</span>
+          </div>
+          <h1 className="font-serif text-[clamp(2.8rem,6vw,5.5rem)] font-normal text-white leading-[0.95] max-w-3xl">
+            Hablemos sobre
+            <br /><span className="text-white/30">su caso.</span>
+          </h1>
+        </motion.div>
+      </section>
 
-              {/* Item Correo */}
-              <div className="flex gap-4 md:gap-6 items-start">
-                <div className="bg-navy-800 p-3 md:p-4 rounded-full text-gold-400 shrink-0 shadow-lg">
-                  <Mail size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-white text-lg md:text-xl mb-1 font-serif">Correo Electrónico</h4>
-                  <p className="text-slate-400 text-sm md:text-base">contacto@monteza-villegas.com</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+      {/* Contenido split */}
+      <section className="grow relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          {/* Lado izquierdo — info */}
+          <div className="bg-navy-900/30 py-24 lg:py-32">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="max-w-lg mx-auto lg:ml-auto lg:mr-16 xl:mr-24 px-6 lg:px-0"
+            >
+              <p className="text-white/25 text-[15px] leading-[1.9] font-light mb-16 max-w-sm">
+                Programemos una reunión inicial para evaluar su situación con absoluta confidencialidad. La primera consulta es sin compromiso.
+              </p>
 
-          {/* FORMULARIO */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="order-1 lg:order-2 bg-navy-900 p-6 md:p-12 rounded-sm border border-navy-800 shadow-2xl relative overflow-hidden"
-          >
-            {/* Fondo decorativo */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gold-400/5 blur-[60px] rounded-full"></div>
+              <div className="space-y-8">
+                {contactInfo.map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -15 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 + i * 0.08 }}
+                    className="flex gap-5 group"
+                  >
+                    <div className="shrink-0 w-10 h-10 rounded-full border border-white/[0.06] flex items-center justify-center text-gold-400/30 group-hover:border-gold-400/20 group-hover:text-gold-400/60 transition-all duration-500">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <p className="text-white/15 text-[10px] tracking-[0.3em] uppercase mb-1">{item.label}</p>
+                      <p className="text-white/50 text-sm whitespace-pre-line font-light">{item.value}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
 
-            {/* Cabecera del Formulario Centrada */}
-            <div className="flex flex-col items-center text-center mb-8">
-              <div className="mb-6 relative h-12 w-40 md:h-16 md:w-48">
-                 <Image
-                  src="/logo2.png"
-                  alt="Monteza Villegas"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              
-              <h3 className="text-xl md:text-2xl font-bold text-white font-serif relative inline-block pb-3">
-                Envíenos un Mensaje
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-1 bg-gold-400 rounded-full"></span>
-              </h3>
-            </div>
-            
-            <form className="space-y-4 md:space-y-6 relative z-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                <div>
-                  <label className="block text-xs md:text-sm font-bold text-gold-400 mb-2 uppercase tracking-wider">Nombre</label>
-                  <input type="text" className="w-full p-3 md:p-4 bg-navy-950 border border-navy-800 text-white rounded focus:border-gold-400 outline-none transition-all placeholder:text-slate-700" placeholder="Su nombre" />
-                </div>
-                <div>
-                  <label className="block text-xs md:text-sm font-bold text-gold-400 mb-2 uppercase tracking-wider">Teléfono</label>
-                  <input type="tel" className="w-full p-3 md:p-4 bg-navy-950 border border-navy-800 text-white rounded focus:border-gold-400 outline-none transition-all placeholder:text-slate-700" placeholder="+51..." />
-                </div>
-              </div>
-              
-              <div>
-                <label className="block text-xs md:text-sm font-bold text-gold-400 mb-2 uppercase tracking-wider">Correo</label>
-                <input type="email" className="w-full p-3 md:p-4 bg-navy-950 border border-navy-800 text-white rounded focus:border-gold-400 outline-none transition-all placeholder:text-slate-700" placeholder="correo@empresa.com" />
-              </div>
+          {/* Lado derecho — formulario */}
+          <div className="py-24 lg:py-32">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="max-w-lg mx-auto lg:mr-auto lg:ml-16 xl:ml-24 px-6 lg:px-0"
+            >
+              <p className="text-white/15 text-[10px] tracking-[0.3em] uppercase mb-12">Envíenos un mensaje</p>
 
-              <div>
-                <label className="block text-xs md:text-sm font-bold text-gold-400 mb-2 uppercase tracking-wider">Asunto</label>
+              <form className="space-y-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+                  <div className="relative">
+                    <input type="text" placeholder="Nombre completo" className="w-full px-0 py-3 bg-transparent border-b border-white/[0.06] text-white/80 text-sm placeholder:text-white/15 focus:border-gold-400/30 transition-colors duration-500 outline-none peer" />
+                    <div className="absolute bottom-0 left-0 w-0 h-px bg-gold-400/50 peer-focus:w-full transition-all duration-500" />
+                  </div>
+                  <div className="relative">
+                    <input type="tel" placeholder="Teléfono" className="w-full px-0 py-3 bg-transparent border-b border-white/[0.06] text-white/80 text-sm placeholder:text-white/15 focus:border-gold-400/30 transition-colors duration-500 outline-none peer" />
+                    <div className="absolute bottom-0 left-0 w-0 h-px bg-gold-400/50 peer-focus:w-full transition-all duration-500" />
+                  </div>
+                </div>
+
                 <div className="relative">
-                  <select className="w-full p-3 md:p-4 bg-navy-950 border border-navy-800 text-white rounded focus:border-gold-400 outline-none appearance-none">
-                    <option>Derecho Corporativo</option>
-                    <option>Litigios & Arbitraje</option>
-                    <option>Propiedad Intelectual</option>
-                    <option>Otro Asunto</option>
+                  <input type="email" placeholder="Correo electrónico" className="w-full px-0 py-3 bg-transparent border-b border-white/[0.06] text-white/80 text-sm placeholder:text-white/15 focus:border-gold-400/30 transition-colors duration-500 outline-none peer" />
+                  <div className="absolute bottom-0 left-0 w-0 h-px bg-gold-400/50 peer-focus:w-full transition-all duration-500" />
+                </div>
+
+                <div className="relative">
+                  <select className="w-full px-0 py-3 bg-transparent border-b border-white/[0.06] text-white/40 text-sm appearance-none focus:border-gold-400/30 transition-colors duration-500 outline-none cursor-pointer">
+                    <option value="" className="bg-navy-950 text-white">Área de consulta</option>
+                    <option value="corporativo" className="bg-navy-950">Derecho Corporativo</option>
+                    <option value="penal" className="bg-navy-950">Defensa Penal</option>
+                    <option value="civil" className="bg-navy-950">Litigios Civiles</option>
+                    <option value="laboral" className="bg-navy-950">Derecho Laboral</option>
+                    <option value="familia" className="bg-navy-950">Derecho de Familia</option>
+                    <option value="otro" className="bg-navy-950">Otro Asunto</option>
                   </select>
                 </div>
-              </div>
 
-              <div>
-                <label className="block text-xs md:text-sm font-bold text-gold-400 mb-2 uppercase tracking-wider">Mensaje</label>
-                <textarea rows={4} className="w-full p-3 md:p-4 bg-navy-950 border border-navy-800 text-white rounded focus:border-gold-400 outline-none resize-none placeholder:text-slate-700" placeholder="Consulta..."></textarea>
-              </div>
+                <div className="relative">
+                  <textarea rows={3} placeholder="Describa brevemente su consulta..." className="w-full px-0 py-3 bg-transparent border-b border-white/[0.06] text-white/80 text-sm placeholder:text-white/15 focus:border-gold-400/30 transition-colors duration-500 resize-none outline-none peer" />
+                  <div className="absolute bottom-0 left-0 w-0 h-px bg-gold-400/50 peer-focus:w-full transition-all duration-500" />
+                </div>
 
-              <button type="submit" className="w-full py-4 bg-gold-400 text-navy-900 font-bold rounded hover:bg-gold-500 transition-all uppercase tracking-widest text-sm shadow-lg active:scale-95">
-                Enviar Consulta
-              </button>
-            </form>
-          </motion.div>
+                <button type="submit" className="group inline-flex items-center gap-4 px-0 py-2 bg-transparent text-gold-400/70 text-[13px] font-medium uppercase tracking-[0.2em] hover:text-gold-400 transition-colors duration-500">
+                  Enviar consulta
+                  <span className="w-12 h-px bg-gold-400/30 group-hover:w-20 group-hover:bg-gold-400/60 transition-all duration-500" />
+                </button>
+              </form>
+            </motion.div>
+          </div>
         </div>
       </section>
+
       <Footer />
     </main>
   );

@@ -1,71 +1,96 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-navy-950">
-      
-      {/* FONDO */}
+    <section className="relative w-full min-h-screen flex items-end overflow-hidden bg-navy-950">
+      {/* Fondo */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-navy-950/85 z-10" />
+        <div className="absolute inset-0 bg-navy-950/75 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/50 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/30 to-transparent z-10" />
         <Image
-          src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2000" 
-          alt="Biblioteca Legal Monteza Villegas"
+          src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2000"
+          alt="Biblioteca Legal"
           fill
           priority
-          className="object-cover opacity-70"
+          className="object-cover"
         />
       </div>
 
-      {/* CONTENIDO - Padding aumentado a pt-40 para evitar choque con el logo */}
-      <div className="relative z-20 container mx-auto px-6 pt-40 pb-20 md:pt-48">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-4xl"
-        >
-          {/* Etiqueta */}
-          <div className="inline-flex flex-wrap items-center gap-2 px-3 py-2 rounded-sm bg-navy-900/50 border border-gold-400/30 text-gold-400 text-[10px] md:text-sm mb-6 md:mb-8 backdrop-blur-sm">
-            <span className="w-2 h-2 rounded-full bg-gold-400 animate-pulse shrink-0" />
-            <span className="font-bold tracking-widest uppercase wrap-break-word">Especialistas en Derecho Corporativo y Penal</span>
-          </div>
-          
-          {/* Título */}
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight mb-6 drop-shadow-lg font-serif">
-            Defendemos tu legado, <br />
-            <span className="text-gold-400">
-              protegemos tu futuro.
-            </span>
-          </h1>
-          
-          <p className="text-base sm:text-lg md:text-xl text-slate-200 mb-8 md:mb-10 max-w-xl leading-relaxed border-l-2 border-gold-400 pl-4 md:pl-6 drop-shadow-md">
-            En <strong>Monteza Villegas & Abogados</strong>, la excelencia no es una opción, es nuestro estándar. Soluciones legales estratégicas para casos complejos.
-          </p>
+      {/* Líneas decorativas */}
+      <div className="absolute left-[6%] top-0 w-px h-full bg-gradient-to-b from-transparent via-gold-400/10 to-transparent z-10 hidden xl:block" />
+      <div className="absolute right-[6%] top-0 w-px h-full bg-gradient-to-b from-transparent via-white/5 to-transparent z-10 hidden xl:block" />
 
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <Link 
-              href="/contacto" 
-              className="group flex items-center justify-center gap-3 px-8 py-4 bg-gold-400 hover:bg-gold-500 text-navy-900 rounded-sm font-bold text-lg transition-all shadow-[0_0_20px_rgba(207,166,87,0.3)] hover:shadow-[0_0_30px_rgba(207,166,87,0.5)]"
-            >
-              Agendar Consulta
-              <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-            </Link>
-            
-            <Link 
-              href="/areas" 
-              className="group flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-slate-400 text-white hover:bg-white/10 rounded-sm font-semibold text-lg transition-all backdrop-blur-sm"
-            >
-              Nuestras Áreas
-              <ChevronRight className="text-gold-400 group-hover:translate-x-1 transition-transform" size={20} />
-            </Link>
-          </div>
-        </motion.div>
+      {/* Contenido — alineado abajo para composición editorial */}
+      <div className="relative z-20 w-full pb-20 lg:pb-28 pt-48">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            {/* Overline con línea */}
+            <div className="flex items-center gap-5 mb-10 lg:mb-14">
+              <span className="h-px w-16 bg-gold-400/60" />
+              <span className="text-gold-400/80 text-[11px] font-medium tracking-[0.35em] uppercase">
+                Monteza Villegas &amp; Abogados
+              </span>
+            </div>
+
+            {/* Título — grande, editorial, con contraste */}
+            <h1 className="font-serif text-[clamp(2.8rem,7vw,6.5rem)] font-normal text-white leading-[0.95] mb-10 lg:mb-14 max-w-5xl">
+              Estrategia legal
+              <br />
+              con <em className="text-gold-400 not-italic font-medium">rigor,</em> discreción
+              <br />
+              <span className="text-white/40">y excelencia.</span>
+            </h1>
+
+            {/* Subtítulo — separado, con más aire */}
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:gap-20">
+              <p className="text-white/40 text-base lg:text-lg leading-[1.8] max-w-md font-light">
+                Asesoría jurídica de alto nivel para decisiones que exigen
+                precisión. Más de una década protegiendo los intereses de
+                quienes no pueden permitirse menos que la excelencia.
+              </p>
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4 shrink-0">
+                <Link
+                  href="/contacto"
+                  className="group inline-flex items-center justify-center gap-3 px-9 py-4 bg-gold-400 text-navy-950 text-[13px] font-semibold uppercase tracking-[0.15em] transition-all duration-500 hover:bg-gold-300 hover:shadow-[0_0_60px_rgba(212,175,55,0.2)]"
+                >
+                  Agendar Consulta
+                  <ArrowRight className="group-hover:translate-x-1.5 transition-transform duration-500" size={15} />
+                </Link>
+                <Link
+                  href="/areas"
+                  className="inline-flex items-center justify-center gap-3 px-9 py-4 border border-white/15 text-white/50 text-[13px] font-medium uppercase tracking-[0.15em] transition-all duration-500 hover:border-gold-400/40 hover:text-gold-400"
+                >
+                  Áreas de Práctica
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
+
+      {/* Scroll */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 1 }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20"
+      >
+        <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 2.5, ease: 'easeInOut' }}>
+          <ChevronDown size={20} className="text-gold-400/30" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

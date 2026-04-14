@@ -11,38 +11,33 @@ interface PageHeaderProps {
 
 export default function PageHeader({ title, subtitle, image }: PageHeaderProps) {
   return (
-    <div className="relative h-[40vh] min-h-75 flex items-center justify-center overflow-hidden border-b border-navy-800 bg-navy-950">
-      
-      {/* 1. IMAGEN DE FONDO */}
+    <div className="relative h-[50vh] min-h-[400px] flex items-end overflow-hidden bg-navy-950">
+      {/* Fondo */}
       <div className="absolute inset-0 z-0">
-        {/* Overlay oscuro */}
-        <div className="absolute inset-0 bg-navy-950/90 z-10" />
-        <Image 
-          src={image} 
-          alt={title} 
-          fill 
-          priority
-          // CAMBIO AQUÍ: Agregada la clase 'opacity-70'
-          className="object-cover opacity-70"
-        />
+        <div className="absolute inset-0 bg-navy-950/75 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-navy-950/60 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/80 via-transparent to-navy-950/60 z-10" />
+        <Image src={image} alt={title} fill priority className="object-cover" />
       </div>
 
-      {/* 2. TEXTO CON SOMBRA */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
+      {/* Líneas decorativas */}
+      <div className="absolute left-[6%] top-0 w-px h-full bg-gradient-to-b from-transparent via-gold-400/10 to-transparent z-10 hidden xl:block" />
+
+      {/* Contenido — alineado abajo */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="relative z-20 text-center px-6 max-w-4xl"
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="relative z-20 w-full pb-16 lg:pb-20"
       >
-        <h1 className="text-4xl md:text-6xl font-bold text-white font-serif mb-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-          {title}
-        </h1>
-        <div className="flex items-center justify-center gap-3">
-          <span className="h-px w-8 bg-gold-400"></span>
-          <p className="text-gold-400 text-sm md:text-base uppercase tracking-widest font-bold drop-shadow-md">
-            {subtitle}
-          </p>
-          <span className="h-px w-8 bg-gold-400"></span>
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
+          <div className="flex items-center gap-5 mb-6">
+            <span className="h-px w-12 bg-gold-400/50" />
+            <span className="text-gold-400/60 text-[11px] font-medium tracking-[0.35em] uppercase">{subtitle}</span>
+          </div>
+          <h1 className="font-serif text-[clamp(2.8rem,6vw,5.5rem)] font-normal text-white leading-[0.95]">
+            {title}
+          </h1>
         </div>
       </motion.div>
     </div>

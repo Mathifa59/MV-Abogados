@@ -7,125 +7,120 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 
+const navLinks = [
+  { name: 'Inicio', href: '/' },
+  { name: 'Áreas de Práctica', href: '/areas' },
+  { name: 'La Firma', href: '/nosotros' },
+  { name: 'Contacto', href: '/contacto' },
+];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Detectar scroll para cambiar el estilo
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Bloquear el scroll de la página cuando el menú está abierto
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = mobileMenuOpen ? 'hidden' : 'unset';
   }, [mobileMenuOpen]);
 
-  const navLinks = [
-    { name: 'Inicio', href: '/' },
-    { name: 'Áreas de Práctica', href: '/areas' },
-    { name: 'Nuestra Firma', href: '/nosotros' },
-    { name: 'Contacto', href: '/contacto' },
-  ];
-
   return (
-    <nav
-      className={cn(
-        'fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b',
-        // LÓGICA DE COLOR:
-        // 1. Si el menú móvil está abierto -> FONDO SÓLIDO AZUL OSCURO (Para que no sea transparente)
-        // 2. Si hiciste scroll -> FONDO CON BLUR + BACKDROP FILTER
-        // 3. Si estás arriba del todo en MÓVIL -> FONDO SEMI-OPACO SIEMPRE (para legibilidad)
-        // 4. Si estás arriba del todo en DESKTOP -> TRANSPARENTE
-        mobileMenuOpen 
-          ? 'bg-[#040b14] border-navy-800 shadow-xl backdrop-blur-md' 
-          : scrolled
-          ? 'bg-[#040b14]/80 border-navy-800/50 shadow-xl backdrop-blur-md'
-          : 'bg-[#040b14]/30 md:bg-transparent border-transparent py-4 md:py-6 md:border-transparent backdrop-blur-sm md:backdrop-blur-none'
-      )}
-    >
+    <nav className={cn(
+      'fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b',
+      mobileMenuOpen
+        ? 'bg-navy-950 border-navy-800'
+        : scrolled
+          ? 'bg-navy-950/95 backdrop-blur-xl border-gold-400/10 shadow-[0_4px_30px_rgba(0,0,0,0.3)]'
+          : 'bg-navy-950/30 md:bg-transparent border-transparent py-2 md:py-4 backdrop-blur-sm md:backdrop-blur-none'
+    )}>
       <div className="container mx-auto px-6 flex items-center justify-between">
-        
-        {/* LOGO */}
-        <Link href="/" className="relative z-50 shrink-0" onClick={() => setMobileMenuOpen(false)}>
+        <Link href="/" className="relative z-50 shrink-0 py-2" onClick={() => setMobileMenuOpen(false)}>
           <Image
-            src="/logo2.png" 
+            src="/logo2.png"
             alt="Monteza Villegas & Abogados"
             width={350}
             height={100}
             className={cn(
-              "w-auto object-contain transition-all duration-300",
-              // Ajustamos tamaño: más pequeño en scroll para no estorbar
-              scrolled ? "h-10 md:h-14" : "h-12 md:h-20"
+              'w-auto object-contain transition-all duration-500',
+              scrolled ? 'h-10 md:h-12' : 'h-12 md:h-16'
             )}
             priority
           />
         </Link>
 
-        {/* MENÚ DE ESCRITORIO (PC) */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-10">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-xs font-bold text-white hover:text-gold-400 transition-colors uppercase tracking-widest drop-shadow-md whitespace-nowrap"
+              className="relative text-[13px] font-medium text-white/80 hover:text-gold-400 transition-colors duration-300 uppercase tracking-[0.2em] group whitespace-nowrap"
             >
               {link.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-px bg-gold-400 transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
           <Link
             href="/contacto"
-            className="px-6 py-3 bg-gold-400 hover:bg-gold-500 text-navy-900 font-bold text-xs rounded-sm transition-all shadow-lg uppercase tracking-wider whitespace-nowrap hover:scale-105"
+            className="ml-2 px-7 py-3 border border-gold-400 text-gold-400 text-[12px] font-semibold uppercase tracking-[0.2em] transition-all duration-300 hover:bg-gold-400 hover:text-navy-950 whitespace-nowrap"
           >
-            Consulta Gratuita
+            Consulta Privada
           </Link>
         </div>
 
-        {/* BOTÓN HAMBURGUESA (MÓVIL) */}
         <button
-          className="lg:hidden text-white relative z-60 p-2 hover:bg-white/10 rounded transition-colors"
+          className="lg:hidden text-white/80 relative z-50 p-2 hover:text-gold-400 transition-colors"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Menú"
+          aria-label="Menú de navegación"
         >
-          {mobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
+          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* MENÚ DESPLEGABLE MÓVIL (SÓLIDO) */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-[#040b14] z-40 flex flex-col pt-24 px-6 gap-6 overflow-y-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-navy-950 z-40 flex flex-col justify-center px-8"
           >
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-xl font-bold text-white hover:text-gold-400 font-serif border-b border-navy-700 pb-6 pt-4 transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Link
-              href="/contacto"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-4 bg-gold-400 text-navy-900 font-bold text-center rounded-sm uppercase tracking-widest mt-6 shadow-lg hover:bg-gold-500 transition-colors"
+            <div className="space-y-1">
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1, duration: 0.4 }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-5 text-2xl font-serif font-semibold text-white/90 hover:text-gold-400 transition-colors border-b border-navy-800/50"
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.4 }}
+              className="mt-10"
             >
-              Agendar Consulta
-            </Link>
+              <Link
+                href="/contacto"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block w-full py-4 border border-gold-400 text-gold-400 text-center text-sm font-semibold uppercase tracking-[0.2em] hover:bg-gold-400 hover:text-navy-950 transition-all"
+              >
+                Agendar Consulta
+              </Link>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

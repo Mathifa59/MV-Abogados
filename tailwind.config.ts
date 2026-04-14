@@ -11,17 +11,26 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        // Paleta exacta extraída del logo Monteza Villegas
         navy: {
-          950: '#040b14', // Fondo principal (casi negro)
-          900: '#061424', // Fondo secundario
-          800: '#0e2a4a', // Tarjetas / Elementos UI (El azul del logo)
+          950: '#020a18',
+          900: '#001F3F',
+          800: '#0a2e52',
+          700: '#143d6b',
         },
         gold: {
-          400: '#cfa657', // Dorado del logo (Color principal)
-          500: '#b89246', // Dorado hover
-          600: '#8c6d32', // Bordes oscuros
-        }
+          300: '#e8c872',
+          400: '#D4AF37',
+          500: '#b8962e',
+          600: '#8c6d1f',
+        },
+        ivory: {
+          DEFAULT: '#F8F6F1',
+          dark: '#EDE9E0',
+        },
+      },
+      fontFamily: {
+        serif: ['var(--font-cormorant)', 'Georgia', 'Times New Roman', 'serif'],
+        sans: ['var(--font-inter)', 'system-ui', '-apple-system', 'sans-serif'],
       },
     },
   },

@@ -1,52 +1,50 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Phone } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 export default function CallToAction() {
   return (
-    <section className="py-20 bg-linear-to-r from-gold-600 to-gold-400 relative overflow-hidden">
-      {/* Patrón decorativo de fondo */}
-      <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-      
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl text-navy-900"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold font-serif mb-4">
-              ¿Tiene un caso complejo? Hablemos hoy.
-            </h2>
-            <p className="text-navy-900/80 text-lg font-medium">
-              La primera consulta estratégica es gratuita. Permítanos evaluar su situación y ofrecerle el mejor camino legal.
-            </p>
-          </motion.div>
+    <section className="py-32 lg:py-44 bg-navy-900 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
+      {/* Glow sutil */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gold-400/[0.02] rounded-full blur-[150px] pointer-events-none" />
 
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 relative">
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col sm:flex-row gap-4"
           >
-            <Link 
-              href="/contacto" 
-              className="flex items-center justify-center gap-2 px-8 py-4 bg-navy-900 text-white rounded font-bold hover:bg-navy-800 transition-all shadow-xl"
-            >
-              Contactar Ahora
-              <ArrowRight size={20} />
-            </Link>
-            <a 
-              href="tel:+51999999999" 
-              className="flex items-center justify-center gap-2 px-8 py-4 bg-white/20 border border-navy-900 text-navy-900 rounded font-bold hover:bg-white/30 transition-all"
-            >
-              <Phone size={20} />
-              Llamar
-            </a>
+            <span className="text-gold-400/50 text-[11px] font-medium tracking-[0.35em] uppercase">Dé el primer paso</span>
+
+            <h2 className="font-serif text-[clamp(2.2rem,5vw,4rem)] font-normal text-white mt-8 mb-8 leading-[1.1]">
+              ¿Tiene un asunto legal que requiere
+              <br className="hidden lg:block" />
+              <span className="text-white/30"> atención inmediata?</span>
+            </h2>
+
+            <p className="text-white/30 text-[15px] leading-[1.9] font-light mb-14 max-w-lg mx-auto">
+              Permítanos evaluar su situación con absoluta confidencialidad. La primera consulta estratégica es sin compromiso.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/contacto"
+                className="group inline-flex items-center justify-center gap-3 px-10 py-4 bg-gold-400 text-navy-950 text-[13px] font-semibold uppercase tracking-[0.15em] transition-all duration-500 hover:bg-gold-300 hover:shadow-[0_0_60px_rgba(212,175,55,0.15)]"
+              >
+                Agendar Consulta
+                <ArrowRight className="group-hover:translate-x-1.5 transition-transform duration-500" size={15} />
+              </Link>
+              <a
+                href="tel:+5101234567"
+                className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-white/10 text-white/40 text-[13px] font-medium uppercase tracking-[0.15em] transition-all duration-500 hover:border-gold-400/30 hover:text-gold-400/70"
+              >
+                +51 (01) 234-5678
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>
