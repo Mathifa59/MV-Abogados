@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function CallToAction() {
   return (
     <section className="py-32 lg:py-44 bg-navy-900 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/4 to-transparent" />
       {/* Glow sutil */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gold-400/[0.02] rounded-full blur-[150px] pointer-events-none" />
 
@@ -31,18 +31,22 @@ export default function CallToAction() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contacto"
+              <a
+                href="https://wa.me/51962281357?text=Buenas%2C%20quisiera%20agendar%20una%20consulta%20legal."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-3 px-10 py-4 bg-gold-400 text-navy-950 text-[13px] font-semibold uppercase tracking-[0.15em] transition-all duration-500 hover:bg-gold-300 hover:shadow-[0_0_60px_rgba(212,175,55,0.15)]"
               >
                 Agendar Consulta
                 <ArrowRight className="group-hover:translate-x-1.5 transition-transform duration-500" size={15} />
-              </Link>
+              </a>
               <a
-                href="tel:+5101234567"
+                href="https://wa.me/51962281357?text=Buenas%2C%20quisiera%20agendar%20una%20consulta%20legal."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-white/10 text-white/40 text-[13px] font-medium uppercase tracking-[0.15em] transition-all duration-500 hover:border-gold-400/30 hover:text-gold-400/70"
               >
-                +51 (01) 234-5678
+                +51 962 281 357
               </a>
             </div>
           </motion.div>

@@ -11,7 +11,7 @@ const navLinks = [
   { name: 'Inicio', href: '/' },
   { name: 'Áreas de Práctica', href: '/areas' },
   { name: 'La Firma', href: '/nosotros' },
-  { name: 'Contacto', href: '/contacto' },
+  { name: 'Contacto', href: 'https://wa.me/51962281357?text=Buenas%2C%20quisiera%20agendar%20una%20consulta%20legal.' },
 ];
 
 export default function Navbar() {
@@ -63,12 +63,14 @@ export default function Navbar() {
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-gold-400 transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
-          <Link
-            href="/contacto"
+          <a
+            href="https://wa.me/51962281357?text=Buenas%2C%20quisiera%20agendar%20una%20consulta%20legal."
+            target="_blank"
+            rel="noopener noreferrer"
             className="ml-2 px-7 py-3 border border-gold-400 text-gold-400 text-[12px] font-semibold uppercase tracking-[0.2em] transition-all duration-300 hover:bg-gold-400 hover:text-navy-950 whitespace-nowrap"
           >
             Consulta Privada
-          </Link>
+          </a>
         </div>
 
         <button
@@ -113,13 +115,15 @@ export default function Navbar() {
               transition={{ delay: 0.4, duration: 0.4 }}
               className="mt-10"
             >
-              <Link
-                href="/contacto"
+              <a
+                href="https://wa.me/51962281357?text=Buenas%2C%20quisiera%20agendar%20una%20consulta%20legal."
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block w-full py-4 border border-gold-400 text-gold-400 text-center text-sm font-semibold uppercase tracking-[0.2em] hover:bg-gold-400 hover:text-navy-950 transition-all"
               >
                 Agendar Consulta
-              </Link>
+              </a>
             </motion.div>
           </motion.div>
         )}

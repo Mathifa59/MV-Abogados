@@ -11,20 +11,20 @@ export default function Hero() {
       {/* Fondo */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-navy-950/75 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/50 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/30 to-transparent z-10" />
+        <div className="absolute inset-0 bg-linear-to-r from-navy-950 via-navy-950/50 to-transparent z-10" />
+        <div className="absolute inset-0 bg-linear-to-t from-navy-950 via-navy-950/30 to-transparent z-10" />
         <Image
           src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2000"
           alt="Biblioteca Legal"
           fill
           priority
-          className="object-cover"
+          className="object-cover opacity-40"
         />
       </div>
 
       {/* Líneas decorativas */}
-      <div className="absolute left-[6%] top-0 w-px h-full bg-gradient-to-b from-transparent via-gold-400/10 to-transparent z-10 hidden xl:block" />
-      <div className="absolute right-[6%] top-0 w-px h-full bg-gradient-to-b from-transparent via-white/5 to-transparent z-10 hidden xl:block" />
+      <div className="absolute left-[6%] top-0 w-px h-full bg-linear-to-b from-transparent via-gold-400/10 to-transparent z-10 hidden xl:block" />
+      <div className="absolute right-[6%] top-0 w-px h-full bg-linear-to-b from-transparent via-white/5 to-transparent z-10 hidden xl:block" />
 
       {/* Contenido — alineado abajo para composición editorial */}
       <div className="relative z-20 w-full pb-20 lg:pb-28 pt-48">
@@ -48,7 +48,7 @@ export default function Hero() {
               <br />
               con <em className="text-gold-400 not-italic font-medium">rigor,</em> discreción
               <br />
-              <span className="text-white/40">y excelencia.</span>
+              y excelencia.
             </h1>
 
             {/* Subtítulo — separado, con más aire */}
@@ -61,13 +61,15 @@ export default function Hero() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-                <Link
-                  href="/contacto"
+                <a
+                  href="https://wa.me/51962281357?text=Buenas%2C%20quisiera%20agendar%20una%20consulta%20legal."
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group inline-flex items-center justify-center gap-3 px-9 py-4 bg-gold-400 text-navy-950 text-[13px] font-semibold uppercase tracking-[0.15em] transition-all duration-500 hover:bg-gold-300 hover:shadow-[0_0_60px_rgba(212,175,55,0.2)]"
                 >
                   Agendar Consulta
                   <ArrowRight className="group-hover:translate-x-1.5 transition-transform duration-500" size={15} />
-                </Link>
+                </a>
                 <Link
                   href="/areas"
                   className="inline-flex items-center justify-center gap-3 px-9 py-4 border border-white/15 text-white/50 text-[13px] font-medium uppercase tracking-[0.15em] transition-all duration-500 hover:border-gold-400/40 hover:text-gold-400"

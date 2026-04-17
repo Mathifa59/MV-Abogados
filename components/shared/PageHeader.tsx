@@ -15,13 +15,13 @@ export default function PageHeader({ title, subtitle, image }: PageHeaderProps) 
       {/* Fondo */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-navy-950/75 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-navy-950/60 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/80 via-transparent to-navy-950/60 z-10" />
-        <Image src={image} alt={title} fill priority className="object-cover" />
+        <div className="absolute inset-0 bg-linear-to-t from-navy-950 via-navy-950/40 to-navy-950/60 z-10" />
+        <div className="absolute inset-0 bg-linear-to-r from-navy-950/80 via-transparent to-navy-950/60 z-10" />
+        <Image src={image} alt={title} fill priority className="object-cover opacity-40" />
       </div>
 
       {/* Líneas decorativas */}
-      <div className="absolute left-[6%] top-0 w-px h-full bg-gradient-to-b from-transparent via-gold-400/10 to-transparent z-10 hidden xl:block" />
+      <div className="absolute left-[6%] top-0 w-px h-full bg-linear-to-b from-transparent via-gold-400/10 to-transparent z-10 hidden xl:block" />
 
       {/* Contenido — alineado abajo */}
       <motion.div

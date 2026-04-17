@@ -7,7 +7,7 @@ import { Mail, Phone, MapPin, Clock, ArrowRight } from 'lucide-react';
 
 const contactInfo = [
   { icon: <MapPin size={16} strokeWidth={1} />, label: 'Oficina', value: 'Av. Javier Prado Este 1234, Of. 501\nSan Isidro, Lima — Perú' },
-  { icon: <Phone size={16} strokeWidth={1} />, label: 'Teléfono', value: '+51 (01) 234-5678' },
+  { icon: <Phone size={16} strokeWidth={1} />, label: 'WhatsApp', value: '+51 962 281 357' },
   { icon: <Mail size={16} strokeWidth={1} />, label: 'Correo', value: 'contacto@monteza-villegas.com' },
   { icon: <Clock size={16} strokeWidth={1} />, label: 'Horario', value: 'Lunes a Viernes, 9:00 — 18:00' },
 ];
@@ -19,8 +19,8 @@ export default function ContactoPage() {
 
       {/* Hero de contacto — sin PageHeader, diseño propio */}
       <section className="relative pt-40 pb-20 lg:pt-48 lg:pb-28 bg-navy-900/50">
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900/50 to-navy-950" />
-        <div className="absolute left-[6%] top-0 w-px h-full bg-gradient-to-b from-transparent via-gold-400/10 to-transparent hidden xl:block" />
+        <div className="absolute inset-0 bg-linear-to-b from-navy-950 via-navy-900/50 to-navy-950" />
+        <div className="absolute left-[6%] top-0 w-px h-full bg-linear-to-b from-transparent via-gold-400/10 to-transparent hidden xl:block" />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -64,7 +64,7 @@ export default function ContactoPage() {
                     transition={{ delay: 0.1 + i * 0.08 }}
                     className="flex gap-5 group"
                   >
-                    <div className="shrink-0 w-10 h-10 rounded-full border border-white/[0.06] flex items-center justify-center text-gold-400/30 group-hover:border-gold-400/20 group-hover:text-gold-400/60 transition-all duration-500">
+                    <div className="shrink-0 w-10 h-10 rounded-full border border-white/6 flex items-center justify-center text-gold-400/30 group-hover:border-gold-400/20 group-hover:text-gold-400/60 transition-all duration-500">
                       {item.icon}
                     </div>
                     <div>
@@ -90,22 +90,22 @@ export default function ContactoPage() {
               <form className="space-y-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                   <div className="relative">
-                    <input type="text" placeholder="Nombre completo" className="w-full px-0 py-3 bg-transparent border-b border-white/[0.06] text-white/80 text-sm placeholder:text-white/15 focus:border-gold-400/30 transition-colors duration-500 outline-none peer" />
+                    <input type="text" placeholder="Nombre completo" className="w-full px-0 py-3 bg-transparent border-b border-white/6 text-white/80 text-sm placeholder:text-white/15 focus:border-gold-400/30 transition-colors duration-500 outline-none peer" />
                     <div className="absolute bottom-0 left-0 w-0 h-px bg-gold-400/50 peer-focus:w-full transition-all duration-500" />
                   </div>
                   <div className="relative">
-                    <input type="tel" placeholder="Teléfono" className="w-full px-0 py-3 bg-transparent border-b border-white/[0.06] text-white/80 text-sm placeholder:text-white/15 focus:border-gold-400/30 transition-colors duration-500 outline-none peer" />
+                    <input type="tel" placeholder="Teléfono" className="w-full px-0 py-3 bg-transparent border-b border-white/6 text-white/80 text-sm placeholder:text-white/15 focus:border-gold-400/30 transition-colors duration-500 outline-none peer" />
                     <div className="absolute bottom-0 left-0 w-0 h-px bg-gold-400/50 peer-focus:w-full transition-all duration-500" />
                   </div>
                 </div>
 
                 <div className="relative">
-                  <input type="email" placeholder="Correo electrónico" className="w-full px-0 py-3 bg-transparent border-b border-white/[0.06] text-white/80 text-sm placeholder:text-white/15 focus:border-gold-400/30 transition-colors duration-500 outline-none peer" />
+                  <input type="email" placeholder="Correo electrónico" className="w-full px-0 py-3 bg-transparent border-b border-white/6 text-white/80 text-sm placeholder:text-white/15 focus:border-gold-400/30 transition-colors duration-500 outline-none peer" />
                   <div className="absolute bottom-0 left-0 w-0 h-px bg-gold-400/50 peer-focus:w-full transition-all duration-500" />
                 </div>
 
                 <div className="relative">
-                  <select className="w-full px-0 py-3 bg-transparent border-b border-white/[0.06] text-white/40 text-sm appearance-none focus:border-gold-400/30 transition-colors duration-500 outline-none cursor-pointer">
+                  <select className="w-full px-0 py-3 bg-transparent border-b border-white/6 text-white/40 text-sm appearance-none focus:border-gold-400/30 transition-colors duration-500 outline-none cursor-pointer">
                     <option value="" className="bg-navy-950 text-white">Área de consulta</option>
                     <option value="corporativo" className="bg-navy-950">Derecho Corporativo</option>
                     <option value="penal" className="bg-navy-950">Defensa Penal</option>
@@ -117,7 +117,7 @@ export default function ContactoPage() {
                 </div>
 
                 <div className="relative">
-                  <textarea rows={3} placeholder="Describa brevemente su consulta..." className="w-full px-0 py-3 bg-transparent border-b border-white/[0.06] text-white/80 text-sm placeholder:text-white/15 focus:border-gold-400/30 transition-colors duration-500 resize-none outline-none peer" />
+                  <textarea rows={3} placeholder="Describa brevemente su consulta..." className="w-full px-0 py-3 bg-transparent border-b border-white/6 text-white/80 text-sm placeholder:text-white/15 focus:border-gold-400/30 transition-colors duration-500 resize-none outline-none peer" />
                   <div className="absolute bottom-0 left-0 w-0 h-px bg-gold-400/50 peer-focus:w-full transition-all duration-500" />
                 </div>
 

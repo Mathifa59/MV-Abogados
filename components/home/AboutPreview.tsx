@@ -13,16 +13,17 @@ const stats = [
 
 export default function AboutPreview() {
   return (
-    <section className="relative bg-navy-900 overflow-hidden">
-      {/* Layout full-bleed: imagen a la derecha, texto a la izquierda */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[90vh]">
-        {/* Columna texto */}
-        <div className="flex items-center py-28 lg:py-0">
+    <section className="py-32 lg:py-44 bg-navy-900 overflow-hidden relative">
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold-400/[0.015] rounded-full blur-[200px] pointer-events-none" />
+
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-center">
+          {/* Texto — 5 columnas */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="max-w-xl mx-auto lg:ml-auto lg:mr-16 xl:mr-24 px-6 lg:px-0"
+            className="lg:col-span-5"
           >
             <span className="text-gold-400/50 text-[11px] font-medium tracking-[0.35em] uppercase">Sobre la Firma</span>
 
@@ -36,8 +37,8 @@ export default function AboutPreview() {
               Fundada por <span className="text-white/60">Americo Monteza</span>, nuestra firma combina rigor académico, visión estratégica y ética inquebrantable. Cada caso recibe atención directa del equipo senior.
             </p>
 
-            {/* Stats en fila */}
-            <div className="flex gap-10 lg:gap-14 mb-14">
+            {/* Stats */}
+            <div className="flex gap-10 lg:gap-12 mb-14">
               {stats.map((stat, i) => (
                 <motion.div
                   key={i}
@@ -57,34 +58,38 @@ export default function AboutPreview() {
               <ArrowRight className="group-hover:translate-x-2 transition-transform duration-500" size={14} />
             </Link>
           </motion.div>
-        </div>
 
-        {/* Columna imagen — full height, edge-to-edge a la derecha */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="relative min-h-[500px] lg:min-h-0"
-        >
-          <Image
-            src="/americo.jpg"
-            alt="Americo Monteza — Socio Fundador"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/40 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent" />
+          {/* Imagen — 7 columnas, contenida */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-7 relative"
+          >
+            <div className="relative aspect-4/5 lg:aspect-3/4 w-full bg-navy-800 overflow-hidden">
+              <Image
+                src="/americo.jpg"
+                alt="Americo Monteza — Socio Fundador"
+                fill
+                className="object-cover transition-transform duration-1000 hover:scale-[1.03]"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-navy-950/90 via-navy-950/20 to-transparent" />
 
-          {/* Cita flotante abajo */}
-          <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-14">
-            <div className="border-l border-gold-400/40 pl-6 max-w-md">
-              <p className="text-white/70 font-serif italic text-base lg:text-lg leading-[1.7]">
-                &ldquo;La justicia no consiste en dar a cada uno lo suyo, sino en saber reclamarlo con inteligencia.&rdquo;
-              </p>
-              <p className="text-gold-400/40 text-[10px] tracking-[0.3em] uppercase mt-4 font-medium">Americo Monteza — Socio Fundador</p>
+              {/* Cita flotante */}
+              <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12">
+                <div className="border-l border-gold-400/40 pl-6 max-w-md">
+                  <p className="text-white/80 font-serif italic text-base lg:text-lg leading-[1.7]">
+                    &ldquo;La justicia no consiste en dar a cada uno lo suyo, sino en saber reclamarlo con inteligencia.&rdquo;
+                  </p>
+                  <p className="text-gold-400/40 text-[10px] tracking-[0.3em] uppercase mt-4 font-medium">Americo Monteza — Socio Fundador</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </motion.div>
+
+            {/* Marco decorativo */}
+            <div className="absolute -top-4 -right-4 w-full h-full border border-gold-400/[0.08] -z-10 hidden lg:block" />
+          </motion.div>
+        </div>
       </div>
     </section>
   );

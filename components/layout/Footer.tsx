@@ -16,7 +16,7 @@ export default function Footer() {
           <div>
             <h4 className="text-slate-400 text-[11px] tracking-[0.25em] uppercase font-semibold mb-6">Navegación</h4>
             <ul className="space-y-3">
-              {[{ n: 'Inicio', h: '/' }, { n: 'Áreas de Práctica', h: '/areas' }, { n: 'La Firma', h: '/nosotros' }, { n: 'Contacto', h: '/contacto' }].map((l) => (
+              {[{ n: 'Inicio', h: '/' }, { n: 'Áreas de Práctica', h: '/areas' }, { n: 'La Firma', h: '/nosotros' }, { n: 'Contacto', h: 'https://wa.me/51962281357?text=Buenas%2C%20quisiera%20agendar%20una%20consulta%20legal.' }].map((l) => (
                 <li key={l.n}><Link href={l.h} className="text-slate-500 text-sm hover:text-gold-400 transition-colors duration-300">{l.n}</Link></li>
               ))}
             </ul>
@@ -33,7 +33,7 @@ export default function Footer() {
             <h4 className="text-slate-400 text-[11px] tracking-[0.25em] uppercase font-semibold mb-6">Contacto</h4>
             <ul className="space-y-4">
               <li className="flex gap-3 text-slate-500 text-sm"><MapPin className="text-gold-400/50 shrink-0 mt-0.5" size={16} strokeWidth={1.5} /><span>Av. Javier Prado Este 1234, Of. 501<br />San Isidro, Lima — Perú</span></li>
-              <li className="flex gap-3 text-slate-500 text-sm"><Phone className="text-gold-400/50 shrink-0" size={16} strokeWidth={1.5} /><span>+51 (01) 234-5678</span></li>
+              <li className="flex gap-3 text-slate-500 text-sm"><Phone className="text-gold-400/50 shrink-0" size={16} strokeWidth={1.5} /><a href="https://wa.me/51962281357?text=Buenas%2C%20quisiera%20agendar%20una%20consulta%20legal." target="_blank" rel="noopener noreferrer" className="hover:text-gold-400 transition-colors">+51 962 281 357</a></li>
               <li className="flex gap-3 text-slate-500 text-sm"><Mail className="text-gold-400/50 shrink-0" size={16} strokeWidth={1.5} /><span>contacto@monteza-villegas.com</span></li>
             </ul>
           </div>
