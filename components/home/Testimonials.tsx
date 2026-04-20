@@ -10,15 +10,15 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-32 lg:py-44 bg-navy-950 relative">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
+    <section className="py-24 lg:py-32 bg-navy-950 relative">
+      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/4 to-transparent" />
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-24 lg:mb-32"
+          className="text-center mb-16 lg:mb-20"
         >
           <span className="text-gold-400/50 text-[11px] font-medium tracking-[0.35em] uppercase">Confianza Comprobada</span>
           <h2 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-normal text-white mt-6 leading-[1.05]">
@@ -34,7 +34,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.12 }}
-              className="group p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-white/[0.04] last:border-0 relative"
+              className="group p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-white/4 last:border-0 relative"
             >
               {/* Comilla grande decorativa */}
               <span className="font-serif text-[80px] lg:text-[100px] text-gold-400/[0.06] absolute -top-2 left-6 leading-none group-hover:text-gold-400/[0.12] transition-colors duration-700 select-none pointer-events-none">

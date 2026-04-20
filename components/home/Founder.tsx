@@ -5,9 +5,9 @@ import Image from 'next/image';
 
 export default function Founder() {
   return (
-    <section className="py-32 lg:py-44 bg-navy-950 overflow-hidden relative">
+    <section className="py-24 lg:py-32 bg-navy-950 overflow-hidden relative">
       {/* Línea decorativa horizontal */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/4 to-transparent" />
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -18,7 +18,7 @@ export default function Founder() {
             viewport={{ once: true }}
             className="lg:col-span-4 relative"
           >
-            <div className="relative aspect-[3/4] w-full max-w-sm mx-auto lg:mx-0 bg-navy-800 overflow-hidden">
+            <div className="relative aspect-3/4 w-full max-w-sm mx-auto lg:mx-0 bg-navy-800 overflow-hidden">
               <Image src="/americo.jpg" alt="Americo Monteza" fill className="object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-1000" />
             </div>
             <div className="absolute -bottom-4 -right-4 w-full h-full border border-gold-400/[0.08] -z-10 hidden lg:block" />
@@ -33,7 +33,7 @@ export default function Founder() {
           >
             <span className="text-gold-400/50 text-[11px] font-medium tracking-[0.35em] uppercase">Liderazgo</span>
 
-            <h2 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-normal text-white mt-6 mb-3 leading-[1]">
+            <h2 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-normal text-white mt-6 mb-3 leading-none">
               Americo Monteza
             </h2>
             <p className="text-gold-400/40 text-[12px] tracking-[0.25em] uppercase font-medium mb-12">Socio Fundador &amp; Director</p>

@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function CallToAction() {
   return (
-    <section className="py-32 lg:py-44 bg-navy-900 relative overflow-hidden">
+    <section className="py-24 lg:py-32 bg-navy-900 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/4 to-transparent" />
       {/* Glow sutil */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gold-400/[0.02] rounded-full blur-[150px] pointer-events-none" />

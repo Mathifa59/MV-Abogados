@@ -15,9 +15,9 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-32 lg:py-44 bg-navy-950 relative overflow-hidden">
+    <section className="py-24 lg:py-32 bg-navy-950 relative overflow-hidden">
       {/* Decorativo: línea vertical dorada */}
-      <div className="absolute top-0 left-1/2 w-px h-32 bg-gradient-to-b from-gold-400/30 to-transparent hidden lg:block" />
+      <div className="absolute top-0 left-1/2 w-px h-32 bg-linear-to-b from-gold-400/30 to-transparent hidden lg:block" />
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
         {/* Header — centrado con acento grande */}
@@ -25,10 +25,10 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-28 lg:mb-36 relative"
+          className="text-center mb-20 lg:mb-24 relative"
         >
           {/* Texto fantasma grande detrás */}
-          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-[clamp(5rem,15vw,14rem)] text-white/[0.015] leading-none select-none pointer-events-none whitespace-nowrap">
+          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-[clamp(5rem,15vw,14rem)] text-white/1.5 leading-none select-none pointer-events-none whitespace-nowrap">
             Práctica
           </span>
           <span className="text-gold-400/50 text-[11px] font-medium tracking-[0.35em] uppercase relative">Nuestra Experiencia</span>
@@ -46,7 +46,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.06 }}
-              className="group border-t border-white/[0.05] first:border-t-0"
+              className="group border-t border-white/5 first:border-t-0"
             >
               <div className="grid grid-cols-12 items-center py-8 lg:py-10 gap-4 lg:gap-8 cursor-default">
                 {/* Número */}
@@ -75,7 +75,7 @@ export default function Services() {
 
                 {/* Flecha */}
                 <div className="hidden lg:flex col-span-2 justify-end">
-                  <div className="w-10 h-10 rounded-full border border-white/[0.05] flex items-center justify-center group-hover:border-gold-400/30 group-hover:bg-gold-400/5 transition-all duration-500">
+                  <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center group-hover:border-gold-400/30 group-hover:bg-gold-400/5 transition-all duration-500">
                     <ArrowUpRight size={14} className="text-white/15 group-hover:text-gold-400/70 transition-colors duration-500" />
                   </div>
                 </div>
@@ -89,7 +89,7 @@ export default function Services() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-20 flex justify-center"
+          className="mt-10 flex justify-center"
         >
           <Link href="/areas" className="inline-flex items-center gap-4 text-gold-400/40 text-[12px] tracking-[0.2em] uppercase hover:text-gold-400/80 transition-colors duration-500 group">
             <span className="h-px w-10 bg-gold-400/20 group-hover:w-16 group-hover:bg-gold-400/40 transition-all duration-500" />

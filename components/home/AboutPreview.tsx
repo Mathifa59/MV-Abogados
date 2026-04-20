@@ -13,7 +13,7 @@ const stats = [
 
 export default function AboutPreview() {
   return (
-    <section className="py-32 lg:py-44 bg-navy-900 overflow-hidden relative">
+    <section className="py-24 lg:py-32 bg-navy-900 overflow-hidden relative">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold-400/[0.015] rounded-full blur-[200px] pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
