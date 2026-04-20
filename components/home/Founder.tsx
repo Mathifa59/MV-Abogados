@@ -44,17 +44,17 @@ export default function Founder() {
               </p>
             </blockquote>
 
-            <p className="text-white/25 text-[15px] leading-[1.9] font-light mb-10 max-w-lg">
+            <p className="text-white/60 text-[15px] leading-[1.9] font-light mb-10 max-w-lg">
               Con una trayectoria consolidada en derecho penal y corporativo, fundó la firma con la convicción de que la práctica legal debe combinar rigor intelectual con un compromiso genuino hacia cada cliente.
             </p>
 
             <div className="flex gap-12">
               <div>
-                <p className="text-white/15 text-[10px] tracking-[0.3em] uppercase mb-2">Especialización</p>
+                <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase mb-2">Especialización</p>
                 <p className="text-white/60 text-sm font-light">Derecho Penal y Corporativo</p>
               </div>
               <div>
-                <p className="text-white/15 text-[10px] tracking-[0.3em] uppercase mb-2">Enfoque</p>
+                <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase mb-2">Enfoque</p>
                 <p className="text-white/60 text-sm font-light">Resultados y prevención</p>
               </div>
             </div>

@@ -1,100 +1,114 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Shield, Briefcase, Scale, FileText, Gavel, Users, ArrowUpRight } from 'lucide-react';
+import { Shield, Briefcase, Scale } from 'lucide-react';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
-const services = [
-  { icon: <Briefcase strokeWidth={1} className="w-6 h-6" />, title: 'Derecho Corporativo', description: 'Fusiones, adquisiciones, estructuración societaria y gobierno corporativo.', accent: 'M&A' },
-  { icon: <Shield strokeWidth={1} className="w-6 h-6" />, title: 'Defensa Penal', description: 'Litigios complejos, delitos económicos y de cuello blanco.', accent: 'Penal' },
-  { icon: <Scale strokeWidth={1} className="w-6 h-6" />, title: 'Litigios Civiles', description: 'Conflictos contractuales, responsabilidad civil y arbitraje.', accent: 'Civil' },
-  { icon: <FileText strokeWidth={1} className="w-6 h-6" />, title: 'Derecho Laboral', description: 'Gestión preventiva y controversias laborales para organizaciones.', accent: 'Laboral' },
-  { icon: <Users strokeWidth={1} className="w-6 h-6" />, title: 'Derecho de Familia', description: 'Sucesiones, patrimonios familiares y procesos de custodia.', accent: 'Familia' },
-  { icon: <Gavel strokeWidth={1} className="w-6 h-6" />, title: 'Derecho Administrativo', description: 'Organismos reguladores, licencias y contratación pública.', accent: 'Admin.' },
+const featured = [
+  {
+    icon: <Briefcase strokeWidth={1} className="w-7 h-7" />,
+    title: 'Derecho Corporativo',
+    description: 'Estructuramos operaciones complejas de M&A, gobierno corporativo y protección patrimonial para empresas que necesitan certeza jurídica en cada decisión.',
+    areas: ['Fusiones & Adquisiciones', 'Gobierno Corporativo', 'Estructuración Societaria'],
+  },
+  {
+    icon: <Shield strokeWidth={1} className="w-7 h-7" />,
+    title: 'Defensa Penal',
+    description: 'Representación de alto nivel en investigaciones fiscales, delitos económicos y compliance penal. Protegemos la libertad y reputación de nuestros clientes.',
+    areas: ['Delitos Económicos', 'Compliance Penal', 'Cuello Blanco'],
+  },
+  {
+    icon: <Scale strokeWidth={1} className="w-7 h-7" />,
+    title: 'Litigios & Arbitraje',
+    description: 'Defensa estratégica en disputas civiles, comerciales y arbitraje internacional. Cada caso se prepara como si fuera a juicio.',
+    areas: ['Arbitraje Comercial', 'Disputas Civiles', 'Responsabilidad Civil'],
+  },
 ];
 
 export default function Services() {
   return (
     <section className="py-24 lg:py-32 bg-navy-950 relative overflow-hidden">
-      {/* Decorativo: línea vertical dorada */}
-      <div className="absolute top-0 left-1/2 w-px h-32 bg-linear-to-b from-gold-400/30 to-transparent hidden lg:block" />
-
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
-        {/* Header — centrado con acento grande */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-20 lg:mb-24 relative"
-        >
-          {/* Texto fantasma grande detrás */}
-          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-[clamp(5rem,15vw,14rem)] text-white/1.5 leading-none select-none pointer-events-none whitespace-nowrap">
-            Práctica
-          </span>
-          <span className="text-gold-400/50 text-[11px] font-medium tracking-[0.35em] uppercase relative">Nuestra Experiencia</span>
-          <h2 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-normal text-white mt-6 leading-[1.05] relative">
-            Áreas de Práctica
-          </h2>
-        </motion.div>
+        {/* Header asimétrico */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16 lg:mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-6"
+          >
+            <span className="text-gold-400/50 text-[11px] font-medium tracking-[0.35em] uppercase">Lo que hacemos</span>
+            <h2 className="font-serif text-[clamp(2.2rem,4.5vw,4rem)] font-normal text-white mt-5 leading-[1.05]">
+              Práctica legal<br /><span className="text-white/50">de alto nivel</span>
+            </h2>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-5 lg:col-start-8 flex items-end"
+          >
+            <p className="text-white/60 text-[14px] leading-[1.8] font-light">
+              Nos especializamos en las áreas del derecho donde la precisión y la estrategia marcan la diferencia entre un resultado favorable y uno adverso.
+            </p>
+          </motion.div>
+        </div>
 
-        {/* Cards — lista vertical estilo editorial en desktop */}
-        <div className="space-y-0">
-          {services.map((service, index) => (
+        {/* 3 cards destacadas — diseño con sub-áreas */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+          {featured.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.06 }}
-              className="group border-t border-white/5 first:border-t-0"
+              transition={{ delay: index * 0.15 }}
+              className="group relative bg-navy-900/40 border border-white/5 p-8 lg:p-10 hover:border-gold-400/20 hover:bg-navy-900/60 transition-all duration-700"
             >
-              <div className="grid grid-cols-12 items-center py-8 lg:py-10 gap-4 lg:gap-8 cursor-default">
-                {/* Número */}
-                <div className="col-span-2 lg:col-span-1">
-                  <span className="text-gold-400/20 font-serif text-2xl lg:text-3xl font-light group-hover:text-gold-400/50 transition-colors duration-700 select-none">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
+              {/* Número + icono */}
+              <div className="flex items-center justify-between mb-8">
+                <div className="text-gold-400/30 group-hover:text-gold-400/70 transition-colors duration-700">
+                  {item.icon}
                 </div>
-
-                {/* Icono + Título */}
-                <div className="col-span-10 lg:col-span-4 flex items-center gap-5">
-                  <div className="text-gold-400/30 group-hover:text-gold-400/80 transition-colors duration-700 hidden sm:block">
-                    {service.icon}
-                  </div>
-                  <h3 className="font-serif text-lg lg:text-[1.35rem] text-white/80 group-hover:text-gold-400 transition-colors duration-500">
-                    {service.title}
-                  </h3>
-                </div>
-
-                {/* Descripción */}
-                <div className="col-span-12 lg:col-span-5 lg:col-start-6">
-                  <p className="text-white/25 text-[13px] lg:text-sm leading-[1.8] font-light pl-0 lg:pl-4">
-                    {service.description}
-                  </p>
-                </div>
-
-                {/* Flecha */}
-                <div className="hidden lg:flex col-span-2 justify-end">
-                  <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center group-hover:border-gold-400/30 group-hover:bg-gold-400/5 transition-all duration-500">
-                    <ArrowUpRight size={14} className="text-white/15 group-hover:text-gold-400/70 transition-colors duration-500" />
-                  </div>
-                </div>
+                <span className="text-white/6 font-serif text-5xl font-light select-none">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
               </div>
+
+              <h3 className="font-serif text-xl lg:text-2xl text-white/90 mb-4 group-hover:text-gold-400 transition-colors duration-500">
+                {item.title}
+              </h3>
+
+              <p className="text-white/60 text-[13px] leading-[1.8] font-light mb-8">
+                {item.description}
+              </p>
+
+              {/* Sub-áreas como tags */}
+              <div className="flex flex-wrap gap-2">
+                {item.areas.map((area, i) => (
+                  <span key={i} className="text-white/50 text-[10px] tracking-[0.15em] uppercase border border-white/6 px-3 py-1.5 group-hover:border-gold-400/15 group-hover:text-gold-400/40 transition-all duration-500">
+                    {area}
+                  </span>
+                ))}
+              </div>
+
+              {/* Línea inferior animada */}
+              <div className="absolute bottom-0 left-0 w-0 h-px bg-gold-400/40 transition-all duration-700 group-hover:w-full" />
             </motion.div>
           ))}
         </div>
 
-        {/* Link */}
+        {/* CTA a página completa */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-10 flex justify-center"
+          className="mt-14 flex justify-center"
         >
-          <Link href="/areas" className="inline-flex items-center gap-4 text-gold-400/40 text-[12px] tracking-[0.2em] uppercase hover:text-gold-400/80 transition-colors duration-500 group">
-            <span className="h-px w-10 bg-gold-400/20 group-hover:w-16 group-hover:bg-gold-400/40 transition-all duration-500" />
-            Ver todas las áreas
-            <span className="h-px w-10 bg-gold-400/20 group-hover:w-16 group-hover:bg-gold-400/40 transition-all duration-500" />
+          <Link href="/areas" className="group inline-flex items-center gap-4 text-gold-400/50 text-[12px] tracking-[0.2em] uppercase hover:text-gold-400 transition-colors duration-500">
+            Ver las 6 áreas de práctica
+            <ArrowRight className="group-hover:translate-x-2 transition-transform duration-500" size={14} />
           </Link>
         </motion.div>
       </div>

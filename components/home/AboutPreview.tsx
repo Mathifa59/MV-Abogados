@@ -29,11 +29,11 @@ export default function AboutPreview() {
 
             <h2 className="font-serif text-[clamp(2.2rem,4vw,3.8rem)] font-normal text-white mt-6 mb-10 leading-[1.08]">
               Más que representación
-              <br />legal, <span className="text-white/30 italic">alianza</span>
-              <br /><span className="text-white/30 italic">estratégica.</span>
+              <br />legal, <span className="text-white/50 italic">alianza</span>
+              <br /><span className="text-white/50 italic">estratégica.</span>
             </h2>
 
-            <p className="text-white/30 text-[15px] leading-[1.9] mb-12 font-light">
+            <p className="text-white/70 text-[15px] leading-[1.9] mb-12 font-light">
               Fundada por <span className="text-white/60">Americo Monteza</span>, nuestra firma combina rigor académico, visión estratégica y ética inquebrantable. Cada caso recibe atención directa del equipo senior.
             </p>
 
@@ -48,7 +48,7 @@ export default function AboutPreview() {
                   transition={{ delay: 0.2 + i * 0.1 }}
                 >
                   <span className="font-serif text-3xl lg:text-4xl text-gold-400/70 font-light">{stat.number}</span>
-                  <p className="text-white/20 text-[10px] tracking-[0.2em] uppercase mt-2">{stat.label}</p>
+                  <p className="text-white/50 text-[10px] tracking-[0.2em] uppercase mt-2">{stat.label}</p>
                 </motion.div>
               ))}
             </div>

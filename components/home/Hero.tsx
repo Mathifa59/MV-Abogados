@@ -53,7 +53,7 @@ export default function Hero() {
 
             {/* Subtítulo — separado, con más aire */}
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:gap-20">
-              <p className="text-white/40 text-base lg:text-lg leading-[1.8] max-w-md font-light">
+              <p className="text-white/70 text-base lg:text-lg leading-[1.8] max-w-md font-light">
                 Asesoría jurídica de alto nivel para decisiones que exigen
                 precisión. Más de una década protegiendo los intereses de
                 quienes no pueden permitirse menos que la excelencia.

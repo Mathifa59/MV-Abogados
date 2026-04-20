@@ -34,7 +34,7 @@ export default function ContactoPage() {
           </div>
           <h1 className="font-serif text-[clamp(2.8rem,6vw,5.5rem)] font-normal text-white leading-[0.95] max-w-3xl">
             Hablemos sobre
-            <br /><span className="text-white/30">su caso.</span>
+            <br /><span className="text-white/50">su caso.</span>
           </h1>
         </motion.div>
       </section>
@@ -50,7 +50,7 @@ export default function ContactoPage() {
               viewport={{ once: true }}
               className="max-w-lg mx-auto lg:ml-auto lg:mr-16 xl:mr-24 px-6 lg:px-0"
             >
-              <p className="text-white/25 text-[15px] leading-[1.9] font-light mb-16 max-w-sm">
+              <p className="text-white/60 text-[15px] leading-[1.9] font-light mb-16 max-w-sm">
                 Programemos una reunión inicial para evaluar su situación con absoluta confidencialidad. La primera consulta es sin compromiso.
               </p>
 
@@ -68,7 +68,7 @@ export default function ContactoPage() {
                       {item.icon}
                     </div>
                     <div>
-                      <p className="text-white/15 text-[10px] tracking-[0.3em] uppercase mb-1">{item.label}</p>
+                      <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase mb-1">{item.label}</p>
                       <p className="text-white/50 text-sm whitespace-pre-line font-light">{item.value}</p>
                     </div>
                   </motion.div>
@@ -85,27 +85,27 @@ export default function ContactoPage() {
               viewport={{ once: true }}
               className="max-w-lg mx-auto lg:mr-auto lg:ml-16 xl:ml-24 px-6 lg:px-0"
             >
-              <p className="text-white/15 text-[10px] tracking-[0.3em] uppercase mb-12">Envíenos un mensaje</p>
+              <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase mb-12">Envíenos un mensaje</p>
 
               <form className="space-y-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                   <div className="relative">
-                    <input type="text" placeholder="Nombre completo" className="w-full px-0 py-3 bg-transparent border-b border-white/6 text-white/80 text-sm placeholder:text-white/15 focus:border-gold-400/30 transition-colors duration-500 outline-none peer" />
+                    <input type="text" placeholder="Nombre completo" className="w-full px-0 py-3 bg-transparent border-b border-white/6 text-white/80 text-sm placeholder:text-white/30 focus:border-gold-400/30 transition-colors duration-500 outline-none peer" />
                     <div className="absolute bottom-0 left-0 w-0 h-px bg-gold-400/50 peer-focus:w-full transition-all duration-500" />
                   </div>
                   <div className="relative">
-                    <input type="tel" placeholder="Teléfono" className="w-full px-0 py-3 bg-transparent border-b border-white/6 text-white/80 text-sm placeholder:text-white/15 focus:border-gold-400/30 transition-colors duration-500 outline-none peer" />
+                    <input type="tel" placeholder="Teléfono" className="w-full px-0 py-3 bg-transparent border-b border-white/6 text-white/80 text-sm placeholder:text-white/30 focus:border-gold-400/30 transition-colors duration-500 outline-none peer" />
                     <div className="absolute bottom-0 left-0 w-0 h-px bg-gold-400/50 peer-focus:w-full transition-all duration-500" />
                   </div>
                 </div>
 
                 <div className="relative">
-                  <input type="email" placeholder="Correo electrónico" className="w-full px-0 py-3 bg-transparent border-b border-white/6 text-white/80 text-sm placeholder:text-white/15 focus:border-gold-400/30 transition-colors duration-500 outline-none peer" />
+                  <input type="email" placeholder="Correo electrónico" className="w-full px-0 py-3 bg-transparent border-b border-white/6 text-white/80 text-sm placeholder:text-white/30 focus:border-gold-400/30 transition-colors duration-500 outline-none peer" />
                   <div className="absolute bottom-0 left-0 w-0 h-px bg-gold-400/50 peer-focus:w-full transition-all duration-500" />
                 </div>
 
                 <div className="relative">
-                  <select className="w-full px-0 py-3 bg-transparent border-b border-white/6 text-white/40 text-sm appearance-none focus:border-gold-400/30 transition-colors duration-500 outline-none cursor-pointer">
+                  <select className="w-full px-0 py-3 bg-transparent border-b border-white/6 text-white/70 text-sm appearance-none focus:border-gold-400/30 transition-colors duration-500 outline-none cursor-pointer">
                     <option value="" className="bg-navy-950 text-white">Área de consulta</option>
                     <option value="corporativo" className="bg-navy-950">Derecho Corporativo</option>
                     <option value="penal" className="bg-navy-950">Defensa Penal</option>
@@ -117,7 +117,7 @@ export default function ContactoPage() {
                 </div>
 
                 <div className="relative">
-                  <textarea rows={3} placeholder="Describa brevemente su consulta..." className="w-full px-0 py-3 bg-transparent border-b border-white/6 text-white/80 text-sm placeholder:text-white/15 focus:border-gold-400/30 transition-colors duration-500 resize-none outline-none peer" />
+                  <textarea rows={3} placeholder="Describa brevemente su consulta..." className="w-full px-0 py-3 bg-transparent border-b border-white/6 text-white/80 text-sm placeholder:text-white/30 focus:border-gold-400/30 transition-colors duration-500 resize-none outline-none peer" />
                   <div className="absolute bottom-0 left-0 w-0 h-px bg-gold-400/50 peer-focus:w-full transition-all duration-500" />
                 </div>
 

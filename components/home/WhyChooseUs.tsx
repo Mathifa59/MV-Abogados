@@ -23,7 +23,7 @@ export default function WhyChooseUs() {
         >
           <span className="text-gold-400/50 text-[11px] font-medium tracking-[0.35em] uppercase">Nuestro Compromiso</span>
           <h2 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-normal text-white mt-6 leading-[1.05]">
-            Por qué confiar<br /><span className="text-white/30">en nosotros</span>
+            Por qué confiar<br /><span className="text-white/50">en nosotros</span>
           </h2>
         </motion.div>
 
@@ -42,7 +42,7 @@ export default function WhyChooseUs() {
                 {reason.num}
               </span>
               <h3 className="text-white/80 text-base lg:text-lg font-medium font-serif mb-3">{reason.title}</h3>
-              <p className="text-white/25 text-[13px] leading-[1.8] font-light">{reason.description}</p>
+              <p className="text-white/60 text-[13px] leading-[1.8] font-light">{reason.description}</p>
             </motion.div>
           ))}
         </div>

@@ -40,7 +40,7 @@ export default function NosotrosPage() {
               <span className="text-gold-400/50 text-[11px] font-medium tracking-[0.35em] uppercase">Nuestra Visión</span>
               <h2 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-normal text-white mt-6 leading-[1.05]">
                 Excelencia Legal
-                <br /><span className="text-white/30">desde el Primer Día</span>
+                <br /><span className="text-white/50">desde el Primer Día</span>
               </h2>
             </motion.div>
 
@@ -50,7 +50,7 @@ export default function NosotrosPage() {
               viewport={{ once: true }}
               className="lg:col-span-6 lg:col-start-7 flex items-end"
             >
-              <p className="text-white/35 text-base lg:text-lg leading-[1.9] font-light">
+              <p className="text-white/70 text-base lg:text-lg leading-[1.9] font-light">
                 Fundada bajo la visión de <span className="text-white/70">Americo Monteza</span>, nuestra firma nació con un propósito claro: redefinir la práctica legal combinando el rigor académico tradicional con estrategias innovadoras. No solo interpretamos la ley, <span className="text-gold-400/70 italic">diseñamos soluciones</span>.
               </p>
             </motion.div>
@@ -69,7 +69,7 @@ export default function NosotrosPage() {
               >
                 <span className="text-gold-400/15 font-serif text-5xl font-light leading-none mb-6 block group-hover:text-gold-400/30 transition-colors duration-700 select-none">{v.num}</span>
                 <h3 className="text-white/80 text-lg font-medium font-serif mb-3">{v.title}</h3>
-                <p className="text-white/25 text-[13px] leading-[1.8] font-light">{v.desc}</p>
+                <p className="text-white/60 text-[13px] leading-[1.8] font-light">{v.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -78,7 +78,6 @@ export default function NosotrosPage() {
 
       {/* Fundador — full bleed split */}
       <section className="relative bg-navy-900 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/4 to-transparent" />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[85vh]">
           {/* Foto — full height */}
@@ -113,17 +112,17 @@ export default function NosotrosPage() {
                 </p>
               </blockquote>
 
-              <p className="text-white/25 text-[15px] leading-[1.9] font-light mb-10">
+              <p className="text-white/60 text-[15px] leading-[1.9] font-light mb-10">
                 Con una trayectoria consolidada en derecho penal y corporativo, fundó la firma con la convicción de que la práctica legal debe combinar rigor intelectual con un compromiso genuino hacia cada cliente.
               </p>
 
               <div className="flex gap-12">
                 <div>
-                  <p className="text-white/15 text-[10px] tracking-[0.3em] uppercase mb-2">Especialización</p>
+                  <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase mb-2">Especialización</p>
                   <p className="text-white/60 text-sm font-light">Derecho Penal y Corporativo</p>
                 </div>
                 <div>
-                  <p className="text-white/15 text-[10px] tracking-[0.3em] uppercase mb-2">Enfoque</p>
+                  <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase mb-2">Enfoque</p>
                   <p className="text-white/60 text-sm font-light">Resultados y prevención</p>
                 </div>
               </div>

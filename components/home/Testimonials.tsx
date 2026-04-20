@@ -22,7 +22,7 @@ export default function Testimonials() {
         >
           <span className="text-gold-400/50 text-[11px] font-medium tracking-[0.35em] uppercase">Confianza Comprobada</span>
           <h2 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-normal text-white mt-6 leading-[1.05]">
-            Lo que dicen nuestros<br /><span className="text-white/30">clientes</span>
+            Lo que dicen nuestros<br /><span className="text-white/50">clientes</span>
           </h2>
         </motion.div>
 
@@ -41,13 +41,13 @@ export default function Testimonials() {
                 &ldquo;
               </span>
 
-              <p className="text-white/40 text-[15px] leading-[1.8] font-light italic relative z-10 mb-10 min-h-[100px]">
+              <p className="text-white/70 text-[15px] leading-[1.8] font-light italic relative z-10 mb-10 min-h-[100px]">
                 {t.quote}
               </p>
 
               <div>
                 <p className="text-white/70 text-sm font-medium">{t.author}</p>
-                <p className="text-white/20 text-[11px] tracking-[0.15em] uppercase mt-1">{t.company}</p>
+                <p className="text-white/50 text-[11px] tracking-[0.15em] uppercase mt-1">{t.company}</p>
               </div>
             </motion.div>
           ))}

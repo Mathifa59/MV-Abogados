@@ -23,10 +23,10 @@ export default function CallToAction() {
             <h2 className="font-serif text-[clamp(2.2rem,5vw,4rem)] font-normal text-white mt-8 mb-8 leading-[1.1]">
               ¿Tiene un asunto legal que requiere
               <br className="hidden lg:block" />
-              <span className="text-white/30"> atención inmediata?</span>
+              <span className="text-white/50"> atención inmediata?</span>
             </h2>
 
-            <p className="text-white/30 text-[15px] leading-[1.9] font-light mb-14 max-w-lg mx-auto">
+            <p className="text-white/70 text-[15px] leading-[1.9] font-light mb-14 max-w-lg mx-auto">
               Permítanos evaluar su situación con absoluta confidencialidad. La primera consulta estratégica es sin compromiso.
             </p>
 
@@ -44,7 +44,7 @@ export default function CallToAction() {
                 href="https://wa.me/51962281357?text=Buenas%2C%20quisiera%20agendar%20una%20consulta%20legal."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-white/10 text-white/40 text-[13px] font-medium uppercase tracking-[0.15em] transition-all duration-500 hover:border-gold-400/30 hover:text-gold-400/70"
+                className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-white/10 text-white/70 text-[13px] font-medium uppercase tracking-[0.15em] transition-all duration-500 hover:border-gold-400/30 hover:text-gold-400/70"
               >
                 +51 962 281 357
               </a>
