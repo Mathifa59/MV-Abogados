@@ -18,6 +18,8 @@ const navLinks = [
   { name: 'Contacto', href: '/contacto' },
 ];
 
+const numerals = ['I', 'II', 'III', 'IV', 'V'];
+
 export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
@@ -63,8 +65,8 @@ export default function Navbar() {
           <Image
             src={onDark || mobileMenuOpen ? '/logo2.png' : '/logo.png'}
             alt="Monteza Villegas & Abogados"
-            width={350}
-            height={100}
+            width={336}
+            height={111}
             className={cn(
               'w-auto object-contain transition-all duration-500',
               scrolled ? 'h-10 md:h-11' : 'h-11 md:h-14'
@@ -117,13 +119,44 @@ export default function Navbar() {
 
         <button
           className={cn(
-            'lg:hidden relative z-50 p-2 transition-colors',
+            'lg:hidden relative z-50 w-10 h-10 flex items-center justify-center transition-colors',
             onDark || mobileMenuOpen ? 'text-white/90 hover:text-gold-400' : 'text-navy-900 hover:text-gold-600'
           )}
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          onClick={() => setMobileMenuOpen((v) => !v)}
           aria-label="Menú de navegación"
+          aria-expanded={mobileMenuOpen}
         >
-          {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+          <motion.span
+            animate={{ rotate: mobileMenuOpen ? 90 : 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="relative w-6 h-6 flex items-center justify-center"
+          >
+            <AnimatePresence initial={false} mode="wait">
+              {mobileMenuOpen ? (
+                <motion.span
+                  key="close"
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.7 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  <X size={24} />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="menu"
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.7 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  <Menu size={24} />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.span>
         </button>
       </div>
 
@@ -133,51 +166,67 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-navy-900 z-40 flex flex-col justify-center px-8"
+            transition={{ duration: 0.28, ease: 'easeOut' }}
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setMobileMenuOpen(false);
+            }}
+            className="fixed inset-0 z-40 flex flex-col bg-navy-900 bg-grain bg-columns-dark overflow-hidden"
           >
-            <div className="space-y-1">
-              {navLinks.map((link, i) => {
-                const active = isActive(link.href);
-                return (
-                  <motion.div
-                    key={link.name}
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.08, duration: 0.4 }}
-                  >
+            <div className="aurora w-[380px] h-[380px] bg-gold-400/10 -top-24 -right-24" />
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 6 }}
+              transition={{ duration: 0.3, delay: 0.06, ease: 'easeOut' }}
+              className="relative z-10 flex flex-col justify-center flex-1 px-8"
+            >
+              <nav className="flex flex-col">
+                {navLinks.map((link, i) => {
+                  const active = isActive(link.href);
+                  return (
                     <Link
+                      key={link.name}
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
                       aria-current={active ? 'page' : undefined}
-                      className={cn(
-                        'flex items-center gap-4 py-5 text-2xl font-serif font-semibold transition-colors border-b border-white/10',
-                        active ? 'text-gold-400' : 'text-white/90 hover:text-gold-400'
-                      )}
+                      className="group flex items-center gap-5 py-4 border-b border-gold-400/10 last:border-0"
                     >
-                      {active && <span className="w-6 h-px bg-gold-400" />}
-                      {link.name}
+                      <span
+                        className={cn(
+                          'font-serif text-lg w-6 shrink-0 transition-colors duration-300',
+                          active ? 'text-gold-400' : 'text-gold-400/35 group-hover:text-gold-400/70'
+                        )}
+                      >
+                        {numerals[i]}
+                      </span>
+                      <span
+                        className={cn(
+                          'font-serif text-[1.7rem] font-normal tracking-tight transition-colors duration-300',
+                          active ? 'text-gold-400 italic' : 'text-white/90 group-hover:text-gold-400'
+                        )}
+                      >
+                        {link.name}
+                      </span>
                     </Link>
-                  </motion.div>
-                );
-              })}
-            </div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.4 }}
-              className="mt-10"
-            >
+                  );
+                })}
+              </nav>
+
               <a
                 href={WHATSAPP}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block w-full py-4 border border-gold-400 text-gold-400 text-center text-sm font-semibold uppercase tracking-[0.2em] hover:bg-gold-400 hover:text-navy-950 transition-all"
+                className="mt-9 inline-flex items-center justify-center gap-3 w-full py-4 bg-gold-400 text-navy-950 text-center text-[13px] font-semibold uppercase tracking-[0.2em] active:bg-gold-300 transition-colors"
               >
                 Agendar Consulta
               </a>
             </motion.div>
+
+            <div className="relative z-10 px-8 pb-8 pt-2 text-center">
+              <span className="text-white/30 text-[10px] tracking-[0.3em] uppercase">+51 962 281 357</span>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
