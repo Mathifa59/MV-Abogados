@@ -39,7 +39,7 @@ export default function Hero() {
       <div className="absolute left-[8%] top-0 w-px h-full bg-linear-to-b from-transparent via-gold-400/15 to-transparent z-10 hidden xl:block" />
       <div className="absolute right-[8%] top-0 w-px h-full bg-linear-to-b from-transparent via-gold-400/15 to-transparent z-10 hidden xl:block" />
 
-      <div className="relative z-20 w-full pt-36 pb-24">
+      <div className="relative z-20 w-full pt-28 pb-20">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -47,22 +47,20 @@ export default function Hero() {
             transition={{ duration: 1, ease: 'easeOut' }}
             className="max-w-4xl"
           >
-            <div className="flex items-center gap-5 mb-10">
+            <div className="flex items-center gap-5 mb-7">
               <span className="h-px w-16 bg-gold-400/70" />
               <span className="text-gold-400 text-[11px] font-medium tracking-[0.35em] uppercase">
                 Monteza Villegas &amp; Abogados — Perú
               </span>
             </div>
 
-            <h1 className="font-serif text-[clamp(2.9rem,7vw,6.2rem)] font-medium text-white leading-[1.02] mb-10">
+            <h1 className="font-serif text-[clamp(2.1rem,4.8vw,4.4rem)] font-medium text-white leading-[1.06] mb-7">
               El derecho es el pilar.
               <br />
-              <span className="text-gold-400 italic font-normal">La estrategia,</span> nuestro
-              <br />
-              oficio.
+              <span className="text-gold-400 italic font-normal">La estrategia,</span> nuestro oficio.
             </h1>
 
-            <p className="text-white/80 text-base lg:text-lg leading-[1.85] max-w-xl font-light mb-12">
+            <p className="text-white/80 text-[15px] lg:text-base leading-[1.8] max-w-xl font-light mb-10">
               Asesoría jurídica construida sobre confianza, compromiso y
               profesionalismo. Defendemos sus intereses con el rigor de quien
               entiende lo que está en juego.

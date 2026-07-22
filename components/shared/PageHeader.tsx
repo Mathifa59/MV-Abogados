@@ -41,7 +41,7 @@ export default function PageHeader({ title, subtitle, image = '/hero-bg.jpg' }: 
             <span className="h-px w-12 bg-gold-400/70" />
             <span className="text-gold-400 text-[11px] font-medium tracking-[0.35em] uppercase">{subtitle}</span>
           </div>
-          <h1 className="font-serif text-[clamp(2.8rem,6vw,5.5rem)] font-medium text-white leading-[0.98]">
+          <h1 className="font-serif text-[clamp(2.2rem,4.5vw,4.2rem)] font-medium text-white leading-[1.02]">
             {title}
           </h1>
         </div>

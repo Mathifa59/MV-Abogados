@@ -34,7 +34,7 @@ export default function ContactoPage() {
             <span className="h-px w-12 bg-gold-400/70" />
             <span className="text-gold-400 text-[11px] font-medium tracking-[0.35em] uppercase">Contacto</span>
           </div>
-          <h1 className="font-serif text-[clamp(2.8rem,6vw,5.5rem)] font-medium text-white leading-[0.98] max-w-3xl">
+          <h1 className="font-serif text-[clamp(2.2rem,4.5vw,4.2rem)] font-medium text-white leading-[1.02] max-w-3xl">
             Hablemos sobre
             <br />
             <span className="text-gold-400 italic font-normal">su caso.</span>
@@ -43,7 +43,7 @@ export default function ContactoPage() {
       </section>
 
       {/* Contenido split */}
-      <section className="grow relative">
+      <section className="grow relative overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Info */}
           <div className="bg-ivory py-24 lg:py-32 relative overflow-hidden bg-grain">
