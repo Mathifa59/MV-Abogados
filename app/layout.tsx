@@ -1,25 +1,30 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import localFont from "next/font/local";
+import WhatsAppButton from "@/components/shared/WhatsAppButton";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
+const cormorant = localFont({
+  src: [
+    { path: "./fonts/CormorantGaramond.ttf", style: "normal" },
+    { path: "./fonts/CormorantGaramond-Italic.ttf", style: "italic" },
+  ],
   variable: "--font-cormorant",
   display: "swap",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-inter",
+const jost = localFont({
+  src: [
+    { path: "./fonts/Jost.ttf", style: "normal" },
+    { path: "./fonts/Jost-Italic.ttf", style: "italic" },
+  ],
+  variable: "--font-jost",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Monteza Villegas & Abogados | Estrategia Legal con Excelencia",
-  description: "Firma legal premium liderada por Americo Monteza. Asesoría estratégica con rigor, discreción y excelencia profesional.",
+  title: "Monteza Villegas & Abogados | Firma Legal en Perú",
+  description:
+    "Firma legal peruana especializada en derecho corporativo, penal y litigios. Confianza, compromiso y profesionalismo.",
 };
 
 export default function RootLayout({
@@ -28,9 +33,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${cormorant.variable} ${inter.variable}`}>
-      <body className={`antialiased ${inter.className}`}>
+    <html lang="es" className={`${cormorant.variable} ${jost.variable}`}>
+      <body className="antialiased font-sans">
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );

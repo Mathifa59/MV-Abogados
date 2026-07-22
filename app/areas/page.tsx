@@ -6,8 +6,11 @@ import Footer from '@/components/layout/Footer';
 import { motion } from 'framer-motion';
 import { Shield, Scale, Briefcase, FileText, Globe, Users } from 'lucide-react';
 
+const WHATSAPP = 'https://wa.me/51962281357?text=Buenas%2C%20quisiera%20agendar%20una%20consulta%20legal.';
+
 const areas = [
   {
+    numeral: 'I',
     icon: <Briefcase strokeWidth={1} className="w-8 h-8" />,
     title: 'Derecho Corporativo & M&A',
     subtitle: 'Protección patrimonial y crecimiento empresarial',
@@ -15,6 +18,7 @@ const areas = [
     tags: ['Fusiones & Adquisiciones', 'Gobierno Corporativo', 'Due Diligence', 'Estructuración Societaria'],
   },
   {
+    numeral: 'II',
     icon: <Scale strokeWidth={1} className="w-8 h-8" />,
     title: 'Litigios & Arbitraje',
     subtitle: 'Resolución estratégica de disputas complejas',
@@ -22,6 +26,7 @@ const areas = [
     tags: ['Arbitraje Comercial', 'Disputas Civiles', 'Responsabilidad Civil', 'Mediación'],
   },
   {
+    numeral: 'III',
     icon: <Shield strokeWidth={1} className="w-8 h-8" />,
     title: 'Derecho Penal Económico',
     subtitle: 'Defensa de directivos y organizaciones',
@@ -29,6 +34,7 @@ const areas = [
     tags: ['Compliance Penal', 'Delitos Económicos', 'Cuello Blanco', 'Lavado de Activos'],
   },
   {
+    numeral: 'IV',
     icon: <Users strokeWidth={1} className="w-8 h-8" />,
     title: 'Derecho Laboral Empresarial',
     subtitle: 'Gestión preventiva del talento humano',
@@ -36,6 +42,7 @@ const areas = [
     tags: ['Relaciones Laborales', 'Negociación Colectiva', 'Despidos', 'Auditoría Laboral'],
   },
   {
+    numeral: 'V',
     icon: <FileText strokeWidth={1} className="w-8 h-8" />,
     title: 'Propiedad Intelectual',
     subtitle: 'Protección de activos intangibles',
@@ -43,6 +50,7 @@ const areas = [
     tags: ['Marcas & Patentes', 'Derechos de Autor', 'Secretos Comerciales', 'Licenciamiento'],
   },
   {
+    numeral: 'VI',
     icon: <Globe strokeWidth={1} className="w-8 h-8" />,
     title: 'Derecho Digital & Tecnología',
     subtitle: 'Navegando el entorno regulatorio digital',
@@ -53,30 +61,29 @@ const areas = [
 
 export default function AreasPage() {
   return (
-    <main className="bg-navy-950 min-h-screen">
+    <main className="bg-mist min-h-screen relative">
       <Navbar />
-      <PageHeader
-        title="Áreas de Práctica"
-        subtitle="Experiencia Jurídica Especializada"
-        image="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2000"
-      />
+      <PageHeader title="Áreas de Práctica" subtitle="Experiencia Jurídica Especializada" />
 
       {/* Intro */}
-      <section className="py-20 lg:py-28">
+      <section className="py-20 lg:py-28 relative overflow-hidden bg-grain bg-columns bg-linear-to-b from-mist-deep to-mist">
+        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-gold-400/20 rounded-full blur-[140px] pointer-events-none" />
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-white/70 text-base lg:text-lg leading-[1.9] font-light max-w-2xl"
+            className="text-ink text-base lg:text-lg leading-[1.9] max-w-2xl"
           >
             Nuestra práctica se organiza en seis áreas especializadas, cada una liderada por profesionales con amplia experiencia en su campo. Este enfoque nos permite ofrecer asesoría profunda y estratégica en cada materia.
           </motion.p>
         </div>
       </section>
 
-      {/* Áreas — layout alternado: texto izq/der con separadores */}
-      <section className="pb-24 lg:pb-32">
+      {/* Áreas — lista editorial con numerales romanos */}
+      <section className="pb-24 lg:pb-32 relative overflow-hidden bg-grain bg-linear-to-b from-mist via-mist-deep/70 to-mist">
+        <div className="absolute top-1/4 -left-40 w-[500px] h-[500px] bg-gold-400/15 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-0 -right-40 w-[450px] h-[450px] bg-navy-700/20 rounded-full blur-[140px] pointer-events-none" />
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           {areas.map((area, index) => (
             <motion.div
@@ -85,38 +92,34 @@ export default function AreasPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="border-t border-white/5 py-16 lg:py-20"
+              className="border-t border-navy-900/15 py-16 lg:py-20"
             >
-              <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start ${index % 2 === 1 ? 'lg:direction-rtl' : ''}`}>
-                {/* Lado izquierdo: número + icono + título */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                 <div className={`lg:col-span-5 ${index % 2 === 1 ? 'lg:col-start-8' : ''}`}>
                   <div className="flex items-center gap-4 mb-6">
-                    <span className="text-gold-400/20 font-serif text-4xl font-light select-none">
-                      {String(index + 1).padStart(2, '0')}
+                    <span className="text-gold-500 font-serif text-4xl font-medium select-none">
+                      {area.numeral}
                     </span>
-                    <div className="h-px flex-1 bg-white/5" />
-                    <div className="text-gold-400/40">
-                      {area.icon}
-                    </div>
+                    <div className="h-px flex-1 bg-navy-900/10" />
+                    <div className="text-gold-600">{area.icon}</div>
                   </div>
 
-                  <h3 className="font-serif text-2xl lg:text-3xl text-white/90 mb-2">
+                  <h3 className="font-serif text-2xl lg:text-3xl text-navy-900 font-medium mb-2">
                     {area.title}
                   </h3>
-                  <p className="text-gold-400/40 text-[12px] tracking-[0.2em] uppercase font-medium">
+                  <p className="text-gold-700 text-[12px] tracking-[0.2em] uppercase font-semibold">
                     {area.subtitle}
                   </p>
                 </div>
 
-                {/* Lado derecho: descripción + tags */}
                 <div className={`lg:col-span-6 ${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : 'lg:col-start-7'}`}>
-                  <p className="text-white/70 text-[15px] leading-[1.9] font-light mb-8">
+                  <p className="text-ink text-[15px] leading-[1.9] mb-8">
                     {area.desc}
                   </p>
 
                   <div className="flex flex-wrap gap-2">
                     {area.tags.map((tag, i) => (
-                      <span key={i} className="text-white/40 text-[10px] tracking-[0.15em] uppercase border border-white/5 px-3 py-1.5">
+                      <span key={i} className="text-navy-800 text-[10px] tracking-[0.15em] uppercase border border-navy-900/25 px-3 py-1.5">
                         {tag}
                       </span>
                     ))}
@@ -129,21 +132,22 @@ export default function AreasPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-12 lg:py-16 bg-navy-900/40">
+      <section className="py-16 lg:py-20 bg-navy-900 relative">
+        <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-gold-400/50 to-transparent" />
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-white/70 text-base lg:text-lg font-light mb-8 max-w-lg mx-auto">
+            <p className="text-white/85 text-base lg:text-lg font-light mb-8 max-w-lg mx-auto">
               ¿No encuentra su área de consulta? Contáctenos y evaluaremos su caso de forma personalizada.
             </p>
             <a
-              href="https://wa.me/51962281357?text=Buenas%2C%20quisiera%20agendar%20una%20consulta%20legal."
+              href={WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 px-9 py-4 bg-gold-400 text-navy-950 text-[13px] font-semibold uppercase tracking-[0.15em] transition-all duration-500 hover:bg-gold-300"
+              className="inline-flex items-center gap-3 px-9 py-4 bg-gold-400 text-navy-950 text-[13px] font-semibold uppercase tracking-[0.15em] transition-all duration-500 hover:bg-gold-300"
             >
               Consultar por WhatsApp
             </a>

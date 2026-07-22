@@ -1,26 +1,24 @@
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/home/Hero";
 import Services from "@/components/home/Services";
-import AboutPreview from "@/components/home/AboutPreview";
-import Founder from "@/components/home/Founder";
-import WhyChooseUs from "@/components/home/WhyChooseUs";
+import Firm from "@/components/home/Firm";
+import Team from "@/components/home/Team";
+import Commitment from "@/components/home/Commitment";
 import Testimonials from "@/components/home/Testimonials";
-import CallToAction from "@/components/home/CallToAction";
-import Contact from "@/components/home/Contact";
+import ContactCta from "@/components/home/ContactCta";
 import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-navy-950">
+    <main className="min-h-screen bg-ivory">
       <Navbar />
       <Hero />
       <Services />
-      <AboutPreview />
-      <Founder />
-      <WhyChooseUs />
+      <Firm />
+      <Team />
+      <Commitment />
       <Testimonials />
-      <CallToAction />
-      <Contact />
+      <ContactCta />
       <Footer />
     </main>
   );

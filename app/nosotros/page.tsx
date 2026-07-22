@@ -4,29 +4,29 @@ import PageHeader from '@/components/shared/PageHeader';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 const values = [
-  { num: '01', title: 'Rigor Académico', desc: 'Fundamentación jurídica sólida respaldada por formación continua.' },
-  { num: '02', title: 'Visión Estratégica', desc: 'Cada caso se aborda con perspectiva integral y orientación a resultados.' },
-  { num: '03', title: 'Ética Inquebrantable', desc: 'La integridad profesional como pilar de cada decisión y acción.' },
+  { num: 'I', title: 'Confianza', desc: 'Fundamentación jurídica sólida respaldada por formación continua y transparencia con cada cliente.' },
+  { num: 'II', title: 'Compromiso', desc: 'Cada caso se aborda con perspectiva integral, dedicación plena y orientación a resultados.' },
+  { num: 'III', title: 'Profesionalismo', desc: 'La integridad y la ética profesional como pilar de cada decisión y acción.' },
 ];
 
 export default function NosotrosPage() {
   return (
-    <main className="bg-navy-950 min-h-screen">
+    <main className="bg-ivory min-h-screen">
       <Navbar />
-      <PageHeader
-        title="La Firma"
-        subtitle="Trayectoria y Valores"
-        image="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2000"
-      />
+      <PageHeader title="La Firma" subtitle="Trayectoria y Valores" />
 
-      {/* Visión — layout editorial con texto grande */}
-      <section className="py-32 lg:py-44 relative">
+      {/* Visión */}
+      <section className="py-24 lg:py-36 relative overflow-hidden bg-grain bg-columns">
+        <div className="absolute -top-40 -right-40 w-[550px] h-[550px] bg-gold-400/15 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute -bottom-32 -left-32 w-[450px] h-[450px] bg-navy-700/10 rounded-full blur-[140px] pointer-events-none" />
         {/* Texto fantasma decorativo */}
-        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-[clamp(6rem,18vw,16rem)] text-white/1 leading-none select-none pointer-events-none whitespace-nowrap">
-          Excelencia
+        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-[clamp(6rem,18vw,16rem)] text-navy-900/[0.03] leading-none select-none pointer-events-none whitespace-nowrap">
+          Justicia
         </span>
 
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16 relative">
@@ -37,10 +37,11 @@ export default function NosotrosPage() {
               viewport={{ once: true }}
               className="lg:col-span-5"
             >
-              <span className="text-gold-400/50 text-[11px] font-medium tracking-[0.35em] uppercase">Nuestra Visión</span>
-              <h2 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-normal text-white mt-6 leading-[1.05]">
-                Excelencia Legal
-                <br /><span className="text-white/50">desde el Primer Día</span>
+              <span className="text-gold-700 text-[11px] font-semibold tracking-[0.35em] uppercase">Nuestra Visión</span>
+              <h2 className="font-serif text-[clamp(2.3rem,5vw,4.2rem)] font-medium text-navy-900 mt-6 leading-[1.05]">
+                Los pilares
+                <br />
+                <span className="text-navy-700 italic font-normal">de toda justicia</span>
               </h2>
             </motion.div>
 
@@ -50,14 +51,14 @@ export default function NosotrosPage() {
               viewport={{ once: true }}
               className="lg:col-span-6 lg:col-start-7 flex items-end"
             >
-              <p className="text-white/70 text-base lg:text-lg leading-[1.9] font-light">
-                Fundada bajo la visión de <span className="text-white/70">Americo Monteza</span>, nuestra firma nació con un propósito claro: redefinir la práctica legal combinando el rigor académico tradicional con estrategias innovadoras. No solo interpretamos la ley, <span className="text-gold-400/70 italic">diseñamos soluciones</span>.
+              <p className="text-ink text-base lg:text-lg leading-[1.9]">
+                Nuestra identidad nace de los pilares de un palacio greco-romano, ícono del derecho universal. Fundada bajo la visión de <span className="text-navy-900">Americo Monteza</span>, la firma redefine la práctica legal combinando el rigor académico tradicional con estrategias innovadoras. No solo interpretamos la ley, <span className="text-gold-700 italic font-medium">diseñamos soluciones</span>.
               </p>
             </motion.div>
           </div>
 
-          {/* Valores — horizontal con números */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 mt-28 lg:mt-36">
+          {/* Valores */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 mt-24 lg:mt-32">
             {values.map((v, i) => (
               <motion.div
                 key={i}
@@ -65,22 +66,22 @@ export default function NosotrosPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="py-10 lg:py-0 lg:pr-12 border-b md:border-b-0 md:border-r border-white/4 last:border-0 group"
+                className="py-10 lg:py-2 lg:pr-12 border-b md:border-b-0 md:border-r border-navy-900/10 last:border-0 group lg:pl-8 first:lg:pl-0"
               >
-                <span className="text-gold-400/15 font-serif text-5xl font-light leading-none mb-6 block group-hover:text-gold-400/30 transition-colors duration-700 select-none">{v.num}</span>
-                <h3 className="text-white/80 text-lg font-medium font-serif mb-3">{v.title}</h3>
-                <p className="text-white/60 text-[13px] leading-[1.8] font-light">{v.desc}</p>
+                <span className="text-gold-500 font-serif text-5xl font-medium leading-none mb-6 block group-hover:text-gold-600 transition-colors duration-700 select-none">{v.num}</span>
+                <h3 className="text-navy-900 text-lg font-medium font-serif mb-3">{v.title}</h3>
+                <p className="text-ink/90 text-[13.5px] leading-[1.8]">{v.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Fundador — full bleed split */}
-      <section className="relative bg-navy-900 overflow-hidden">
+      {/* Fundador — sección navy full bleed */}
+      <section className="relative bg-navy-900 overflow-hidden bg-grain bg-columns-dark">
+        <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-gold-400/50 to-transparent" />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[85vh]">
-          {/* Foto — full height */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -92,40 +93,47 @@ export default function NosotrosPage() {
             <div className="absolute inset-0 bg-linear-to-t from-navy-900/80 via-transparent to-transparent lg:hidden" />
           </motion.div>
 
-          {/* Texto */}
-          <div className="flex items-center py-28 lg:py-0 order-1 lg:order-2">
+          <div className="flex items-center py-28 lg:py-24 order-1 lg:order-2">
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="max-w-xl mx-auto lg:mr-auto lg:ml-16 xl:ml-24 px-6 lg:px-0"
             >
-              <span className="text-gold-400/50 text-[11px] font-medium tracking-[0.35em] uppercase">Socio Fundador</span>
-              <h2 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-normal text-white mt-6 mb-3 leading-none">
+              <span className="text-gold-400 text-[11px] font-medium tracking-[0.35em] uppercase">Socio Fundador</span>
+              <h2 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-medium text-white mt-6 mb-3 leading-none">
                 Americo Monteza
               </h2>
-              <p className="text-gold-400/40 text-[12px] tracking-[0.25em] uppercase font-medium mb-12">Director &amp; Socio Fundador</p>
+              <p className="text-gold-400/70 text-[12px] tracking-[0.25em] uppercase font-medium mb-12">Director &amp; Socio Fundador</p>
 
-              <blockquote className="border-l border-gold-400/30 pl-8 mb-12">
-                <p className="text-white/50 font-serif text-xl lg:text-2xl italic leading-[1.6]">
+              <blockquote className="border-l-2 border-gold-400/60 pl-8 mb-12">
+                <p className="text-white/85 font-serif text-xl lg:text-2xl italic leading-[1.6]">
                   &ldquo;La defensa de los intereses de nuestros clientes requiere más que conocimiento legal; requiere visión estratégica, carácter y una ética inquebrantable.&rdquo;
                 </p>
               </blockquote>
 
-              <p className="text-white/60 text-[15px] leading-[1.9] font-light mb-10">
+              <p className="text-white/80 text-[15px] leading-[1.9] font-light mb-10">
                 Con una trayectoria consolidada en derecho penal y corporativo, fundó la firma con la convicción de que la práctica legal debe combinar rigor intelectual con un compromiso genuino hacia cada cliente.
               </p>
 
-              <div className="flex gap-12">
+              <div className="flex gap-12 mb-12">
                 <div>
-                  <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase mb-2">Especialización</p>
-                  <p className="text-white/60 text-sm font-light">Derecho Penal y Corporativo</p>
+                  <p className="text-gold-400/60 text-[10px] tracking-[0.3em] uppercase mb-2">Especialización</p>
+                  <p className="text-white/70 text-sm font-light">Derecho Penal y Corporativo</p>
                 </div>
                 <div>
-                  <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase mb-2">Enfoque</p>
-                  <p className="text-white/60 text-sm font-light">Resultados y prevención</p>
+                  <p className="text-gold-400/60 text-[10px] tracking-[0.3em] uppercase mb-2">Enfoque</p>
+                  <p className="text-white/70 text-sm font-light">Resultados y prevención</p>
                 </div>
               </div>
+
+              <Link
+                href="/#equipo"
+                className="group inline-flex items-center gap-3 text-gold-400 text-[12px] font-medium tracking-[0.2em] uppercase hover:text-gold-300 transition-colors duration-500"
+              >
+                Conocer al equipo completo
+                <ArrowRight className="group-hover:translate-x-2 transition-transform duration-500" size={14} />
+              </Link>
             </motion.div>
           </div>
         </div>

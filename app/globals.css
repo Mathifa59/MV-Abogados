@@ -1,18 +1,138 @@
 @import "tailwindcss";
 
-:root {
-  --background: #020a18;
-  --foreground: #F8F6F1;
+/*
+  Paleta oficial — Manual de Identidad Corporativa MV&ABOGADOS
+  Azul marino #012641 · Dorado #D7B776 · Blanco · Negro
+*/
+@theme {
+  --color-navy-950: #011524;
+  --color-navy-900: #012641;
+  --color-navy-800: #02375d;
+  --color-navy-700: #0a4a78;
+
+  --color-gold-300: #e7d5ac;
+  --color-gold-400: #d7b776;
+  --color-gold-500: #c09b52;
+  --color-gold-600: #96793d;
+  --color-gold-700: #7a5f2e;
+
+  --color-ivory: #f7f4ec;
+  --color-paper: #fffdf8;
+  --color-mist: #e7eef6;
+  --color-mist-deep: #d5e1ec;
+  --color-ink: #1c2833;
+
+  --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-jost), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  background: var(--color-ivory);
+  color: var(--color-ink);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: rgba(212, 175, 55, 0.3);
-  color: #F8F6F1;
+  background: rgba(215, 183, 118, 0.35);
+  color: #012641;
+}
+
+/* ————— Secciones como vistas completas ————— */
+.section-view {
+  position: relative;
+  overflow: hidden;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+/* ————— Marco doble del manual ————— */
+.gilded-frame {
+  position: relative;
+}
+.gilded-frame::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(215, 183, 118, 0.45);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ————— Efectos de fondo ————— */
+
+/* Grano sutil de papel */
+.bg-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Columnas verticales fantasma — como overlay para no pisar
+   el background-image (degradados bg-linear-*) del elemento */
+.bg-columns::before,
+.bg-columns-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-columns::before {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(1, 38, 65, 0.05) 0px,
+    rgba(1, 38, 65, 0.05) 1px,
+    transparent 1px,
+    transparent 180px
+  );
+}
+.bg-columns-dark::before {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(215, 183, 118, 0.06) 0px,
+    rgba(215, 183, 118, 0.06) 1px,
+    transparent 1px,
+    transparent 180px
+  );
+}
+
+/* Aurora dorada animada — manchas de luz que derivan lentamente */
+@keyframes drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(60px, -40px) scale(1.15); }
+  66%  { transform: translate(-40px, 30px) scale(0.92); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+.aurora {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(120px);
+  pointer-events: none;
+  animation: drift 18s ease-in-out infinite;
+}
+.aurora-slow {
+  animation-duration: 26s;
+  animation-direction: reverse;
+}
+
+/* Pulso del botón de WhatsApp */
+@keyframes wa-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45); }
+  70%  { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+.wa-pulse {
+  animation: wa-pulse 2.4s ease-out infinite;
 }

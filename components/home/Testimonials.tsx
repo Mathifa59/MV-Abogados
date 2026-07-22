@@ -10,47 +10,52 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-24 lg:py-32 bg-navy-950 relative">
-      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/4 to-transparent" />
+    <section className="section-view bg-grain bg-columns bg-linear-to-b from-mist via-ivory to-mist-deep">
+      {/* Atmósfera */}
+      <div className="absolute top-1/4 -left-40 w-[500px] h-[500px] bg-gold-400/15 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute -bottom-32 right-1/4 w-[450px] h-[450px] bg-navy-700/20 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16 lg:mb-20"
-        >
-          <span className="text-gold-400/50 text-[11px] font-medium tracking-[0.35em] uppercase">Confianza Comprobada</span>
-          <h2 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-normal text-white mt-6 leading-[1.05]">
-            Lo que dicen nuestros<br /><span className="text-white/50">clientes</span>
-          </h2>
-        </motion.div>
+      <div className="relative z-10 w-full py-24 lg:py-28">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16 lg:mb-20"
+          >
+            <span className="text-gold-700 text-[11px] font-semibold tracking-[0.35em] uppercase">Confianza Comprobada</span>
+            <h2 className="font-serif text-[clamp(2.2rem,4.5vw,4rem)] font-medium text-navy-900 mt-5 leading-[1.05]">
+              Lo que dicen
+              <br />
+              <span className="text-navy-700 italic font-normal">nuestros clientes</span>
+            </h2>
+          </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
-          {testimonials.map((t, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.12 }}
-              className="group p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-white/4 last:border-0 relative"
-            >
-              {/* Comilla grande decorativa */}
-              <span className="font-serif text-[80px] lg:text-[100px] text-gold-400/[0.06] absolute -top-2 left-6 leading-none group-hover:text-gold-400/[0.12] transition-colors duration-700 select-none pointer-events-none">
-                &ldquo;
-              </span>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {testimonials.map((t, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.12 }}
+                className="group bg-paper/90 backdrop-blur-sm border border-navy-900/15 p-10 relative hover:border-gold-500/50 hover:shadow-[0_20px_60px_rgba(1,38,65,0.12)] hover:-translate-y-1 transition-all duration-700"
+              >
+                <span className="font-serif text-[90px] text-gold-500/20 absolute -top-3 left-6 leading-none group-hover:text-gold-500/40 transition-colors duration-700 select-none pointer-events-none">
+                  &ldquo;
+                </span>
 
-              <p className="text-white/70 text-[15px] leading-[1.8] font-light italic relative z-10 mb-10 min-h-[100px]">
-                {t.quote}
-              </p>
+                <p className="text-ink text-[15px] leading-[1.8] italic relative z-10 mb-10 min-h-[100px]">
+                  {t.quote}
+                </p>
 
-              <div>
-                <p className="text-white/70 text-sm font-medium">{t.author}</p>
-                <p className="text-white/50 text-[11px] tracking-[0.15em] uppercase mt-1">{t.company}</p>
-              </div>
-            </motion.div>
-          ))}
+                <div className="border-t border-navy-900/15 pt-5">
+                  <p className="text-navy-900 text-sm font-semibold">{t.author}</p>
+                  <p className="text-gold-700 text-[10px] tracking-[0.2em] uppercase mt-1 font-medium">{t.company}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
