@@ -27,7 +27,7 @@ export default function Footer() {
                 { n: 'Inicio', h: '/' },
                 { n: 'Áreas de Práctica', h: '/areas' },
                 { n: 'La Firma', h: '/nosotros' },
-                { n: 'Equipo', h: '/#equipo' },
+                { n: 'Equipo', h: '/equipo' },
                 { n: 'Contacto', h: '/contacto' },
               ].map((l) => (
                 <li key={l.n}>

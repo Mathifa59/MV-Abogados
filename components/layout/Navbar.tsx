@@ -14,7 +14,7 @@ const navLinks = [
   { name: 'Inicio', href: '/' },
   { name: 'Áreas de Práctica', href: '/areas' },
   { name: 'La Firma', href: '/nosotros' },
-  { name: 'Equipo', href: '/#equipo' },
+  { name: 'Equipo', href: '/equipo' },
   { name: 'Contacto', href: '/contacto' },
 ];
 
@@ -22,7 +22,6 @@ export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [homeSection, setHomeSection] = useState<'inicio' | 'equipo'>('inicio');
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -31,39 +30,16 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Scroll-spy: en el home, detecta si la sección Equipo está en pantalla
-  useEffect(() => {
-    if (pathname !== '/') return;
-    const spy = () => {
-      const el = document.getElementById('equipo');
-      if (!el) return;
-      const r = el.getBoundingClientRect();
-      const mid = window.innerHeight / 2;
-      setHomeSection(r.top < mid && r.bottom > mid ? 'equipo' : 'inicio');
-    };
-    spy();
-    window.addEventListener('scroll', spy, { passive: true });
-    return () => window.removeEventListener('scroll', spy);
-  }, [pathname]);
-
   useEffect(() => {
     document.body.style.overflow = mobileMenuOpen ? 'hidden' : 'unset';
   }, [mobileMenuOpen]);
 
-  const isActive = (href: string) => {
-    if (href === '/') return pathname === '/' && homeSection === 'inicio';
-    if (href === '/#equipo') return pathname === '/' && homeSection === 'equipo';
-    return pathname === href;
-  };
+  const isActive = (href: string) => pathname === href;
 
-  // Si ya estamos en el home, "Equipo" e "Inicio" hacen scroll suave sin re-navegar
+  // Si ya estamos en el home, "Inicio" solo hace scroll suave al principio
   const handleNavClick = (e: React.MouseEvent, href: string) => {
     setMobileMenuOpen(false);
-    if (pathname !== '/') return;
-    if (href === '/#equipo') {
-      e.preventDefault();
-      document.getElementById('equipo')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else if (href === '/') {
+    if (href === '/' && pathname === '/') {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }

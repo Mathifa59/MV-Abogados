@@ -128,7 +128,7 @@ export default function NosotrosPage() {
               </div>
 
               <Link
-                href="/#equipo"
+                href="/equipo"
                 className="group inline-flex items-center gap-3 text-gold-400 text-[12px] font-medium tracking-[0.2em] uppercase hover:text-gold-300 transition-colors duration-500"
               >
                 Conocer al equipo completo
