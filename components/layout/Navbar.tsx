@@ -131,7 +131,7 @@ export default function Navbar() {
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="relative w-6 h-6 flex items-center justify-center"
           >
-            <AnimatePresence initial={false} mode="wait">
+            <AnimatePresence initial={false}>
               {mobileMenuOpen ? (
                 <motion.span
                   key="close"
@@ -181,7 +181,7 @@ export default function Navbar() {
               transition={{ duration: 0.3, delay: 0.06, ease: 'easeOut' }}
               className="relative z-10 flex flex-col justify-center flex-1 px-8"
             >
-              <nav className="flex flex-col">
+              <div className="flex flex-col">
                 {navLinks.map((link, i) => {
                   const active = isActive(link.href);
                   return (
@@ -211,7 +211,7 @@ export default function Navbar() {
                     </Link>
                   );
                 })}
-              </nav>
+              </div>
 
               <a
                 href={WHATSAPP}
