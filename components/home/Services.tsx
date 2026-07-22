@@ -41,7 +41,7 @@ export default function Services() {
       {/* Degradado de entrada desde el hero navy */}
       <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-gold-500/50 to-transparent" />
 
-      <div className="relative z-10 w-full py-24 lg:py-28">
+      <div className="relative z-10 w-full py-16 lg:py-20">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           {/* Header asimétrico */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-14 lg:mb-16">

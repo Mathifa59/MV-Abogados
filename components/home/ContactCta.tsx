@@ -30,7 +30,7 @@ export default function ContactCta() {
         <Image src="/brand/logo-v-dorado.png" alt="" fill className="object-contain" />
       </div>
 
-      <div className="relative z-10 w-full py-24 lg:py-28">
+      <div className="relative z-10 w-full py-16 lg:py-20">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <div className="max-w-3xl mx-auto text-center">
             <motion.div

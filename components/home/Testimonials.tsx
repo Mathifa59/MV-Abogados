@@ -15,7 +15,7 @@ export default function Testimonials() {
       <div className="absolute top-1/4 -left-40 w-[500px] h-[500px] bg-gold-400/15 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute -bottom-32 right-1/4 w-[450px] h-[450px] bg-navy-700/20 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="relative z-10 w-full py-24 lg:py-28">
+      <div className="relative z-10 w-full py-16 lg:py-20">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

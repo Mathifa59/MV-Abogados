@@ -18,7 +18,7 @@ export default function Firm() {
       <div className="absolute top-1/3 -right-40 w-[550px] h-[550px] bg-gold-400/20 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute -bottom-32 -left-32 w-[450px] h-[450px] bg-navy-700/10 rounded-full blur-[130px] pointer-events-none" />
 
-      <div className="relative z-10 w-full py-24 lg:py-28">
+      <div className="relative z-10 w-full py-16 lg:py-20">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-14 items-center">
             {/* Texto */}

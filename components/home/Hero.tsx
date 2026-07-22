@@ -9,7 +9,7 @@ const WHATSAPP = 'https://wa.me/51962281357?text=Buenas%2C%20quisiera%20agendar%
 
 export default function Hero() {
   return (
-    <section className="section-view bg-navy-900 bg-grain">
+    <section className="section-view min-h-[100svh] bg-navy-900 bg-grain">
       {/* Fondo — biblioteca clásica con bustos grecorromanos */}
       <div className="absolute inset-0 z-0">
         <Image
